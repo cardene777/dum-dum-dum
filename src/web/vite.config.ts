@@ -14,19 +14,19 @@ export default defineConfig({
       generouted(),
       tsconfigPaths(),
     ],
-    root: "./",
-    build: {
-      outDir: resolve(__dirname, "dist"),
-      emptyOutDir: true,
-      rollupOptions: {
-        input: {
-          "": resolve(__dirname, "index.html"),
-        },
-        output: {
-          entryFileNames: `assets/bundle.js`,
-        },
-      },
-    },
+    // root: "./",
+    // build: {
+    //   outDir: resolve(__dirname, "dist"),
+    //   emptyOutDir: true,
+    //   rollupOptions: {
+    //     input: {
+    //       "": resolve(__dirname, "index.html"),
+    //     },
+    //     output: {
+    //       entryFileNames: `assets/bundle.js`,
+    //     },
+    //   },
+    // },
     // css: {
     //   modules: {
     //     generateScopedName: isDevelopment
