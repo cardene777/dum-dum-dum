@@ -41,10 +41,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: production-files
-          path: ./dist
+          path: ./src/web/dist
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.SECRET_GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./src/web/dist
