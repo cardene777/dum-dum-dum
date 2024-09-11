@@ -39,5 +39,5 @@ export default defineConfig({
     //     charset: false,
     //   },
     // },
-  base: "/dum-dum-dum/",
+  // base: "/dum-dum-dum/",
 });
