@@ -15,5 +15,6 @@ export default defineConfig({
   root: "./src/web",
   build: {
     outDir: "../../dist", // dist 出力をプロジェクトのルートに出力
+    emptyOutDir: true,
   },
 });
