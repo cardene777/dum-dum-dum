@@ -5,10 +5,8 @@ import { nodePolyfills } from "vite-plugin-node-polyfills";
 import { resolve } from "path";
 import generouted from "@generouted/react-router/plugin";
 
-export default defineConfig((configEnv) => {
-  const isDevelopment = configEnv.mode === "development";
-  return {
-    plugins: [
+export default defineConfig({
+  plugins: [
       nodePolyfills({
         include: ["buffer", "crypto", "stream", "util", "http", "path"],
       }),
@@ -29,18 +27,17 @@ export default defineConfig((configEnv) => {
         },
       },
     },
-    css: {
-      modules: {
-        generateScopedName: isDevelopment
-          ? "[name]__[local]__[hash:base64:5]"
-          : "[hash:base64:5]",
-      },
-    },
-    preprocessorOptions: {
-      css: {
-        charset: false,
-      },
-    },
-    base: "/dum-dum-dum/",
-  };
+    // css: {
+    //   modules: {
+    //     generateScopedName: isDevelopment
+    //       ? "[name]__[local]__[hash:base64:5]"
+    //       : "[hash:base64:5]",
+    //   },
+    // },
+    // preprocessorOptions: {
+    //   css: {
+    //     charset: false,
+    //   },
+    // },
+  base: "/dum-dum-dum/",
 });
