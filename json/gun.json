@@ -1,0 +1,138 @@
+[
+  {
+    "id": 1,
+    "name": "AK-47",
+    "rarity": "Legendary",
+    "level": 5,
+    "attack": 90,
+    "image": "/img/gun/ak-47.png"
+  },
+  {
+    "id": 2,
+    "name": "M4A1",
+    "rarity": "Epic",
+    "level": 4,
+    "attack": 80,
+    "image": "/img/gun/m4a1.png"
+  },
+  {
+    "id": 3,
+    "name": "M16A2",
+    "rarity": "Epic",
+    "level": 4,
+    "attack": 60,
+    "image": "/img/gun/M16A2.png"
+  },
+  {
+    "id": 4,
+    "name": "Desert Eagle",
+    "rarity": "Legendary",
+    "level": 5,
+    "attack": 95,
+    "image": "/img/gun/desert_eagle.png"
+  },
+  {
+    "id": 5,
+    "name": "UMP-45",
+    "rarity": "Rare",
+    "level": 3,
+    "attack": 55,
+    "image": "/img/gun/ump-45.png"
+  },
+  {
+    "id": 6,
+    "name": "AWP",
+    "rarity": "Legendary",
+    "level": 5,
+    "attack": 100,
+    "image": "/img/gun/awp.png"
+  },
+  {
+    "id": 7,
+    "name": "MP5",
+    "rarity": "Epic",
+    "level": 4,
+    "attack": 70,
+    "image": "/img/gun/mp5.png"
+  },
+  {
+    "id": 8,
+    "name": "Glock-18",
+    "rarity": "Common",
+    "level": 2,
+    "attack": 40,
+    "image": "/img/gun/glock-18.png"
+  },
+  {
+    "id": 9,
+    "name": "FAMAS",
+    "rarity": "Rare",
+    "level": 3,
+    "attack": 65,
+    "image": "/img/gun/famas.png"
+  },
+  {
+    "id": 10,
+    "name": "SCAR-H",
+    "rarity": "Legendary",
+    "level": 5,
+    "attack": 85,
+    "image": "/img/gun/scar-h.png"
+  },
+  {
+    "id": 11,
+    "name": "P90",
+    "rarity": "Epic",
+    "level": 4,
+    "attack": 75,
+    "image": "/img/gun/p90.png"
+  },
+  {
+    "id": 12,
+    "name": "MAC-10",
+    "rarity": "Common",
+    "level": 2,
+    "attack": 45,
+    "image": "/img/gun/mac-10.png"
+  },
+  {
+    "id": 13,
+    "name": "M249",
+    "rarity": "Legendary",
+    "level": 5,
+    "attack": 88,
+    "image": "/img/gun/m249.png"
+  },
+  {
+    "id": 14,
+    "name": "RPG-7",
+    "rarity": "Legendary",
+    "level": 5,
+    "attack": 100,
+    "image": "/img/gun/rpg-7.png"
+  },
+  {
+    "id": 15,
+    "name": "M14",
+    "rarity": "Rare",
+    "level": 3,
+    "attack": 68,
+    "image": "/img/gun/m14.png"
+  },
+  {
+    "id": 16,
+    "name": "UZI",
+    "rarity": "Common",
+    "level": 2,
+    "attack": 50,
+    "image": "/img/gun/uzi.png"
+  },
+  {
+    "id": 17,
+    "name": "FN P90",
+    "rarity": "Epic",
+    "level": 4,
+    "attack": 72,
+    "image": "/img/gun/fn-p90.png"
+  }
+]
