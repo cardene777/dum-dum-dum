@@ -41,5 +41,6 @@ export default defineConfig((configEnv) => {
         charset: false,
       },
     },
+    base: "/dum-dum-dum/",
   };
 });
