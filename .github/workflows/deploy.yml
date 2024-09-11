@@ -38,7 +38,6 @@ jobs:
 
       - name: Build
         run: npm run build
-        working-directory: ./src/web  # ./src/web で実行
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
