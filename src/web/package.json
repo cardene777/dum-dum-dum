@@ -5,12 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@generouted/react-router": "^1.19.6",
     "arweave-wallet-kit": "^1.0.4",
     "arweavekit": "^1.5.1",
     "framer-motion": "^11.5.2",
