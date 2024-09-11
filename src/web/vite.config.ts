@@ -11,5 +11,6 @@ export default defineConfig({
     }),
     react(),
   ],
-  base: "/src/web/",
+  base: "/dum-dum-dum/",
+  root: "src/web",
 });
