@@ -1,0 +1,812 @@
+[
+  {
+    "id": 1,
+    "name": "AK-47",
+    "description": "AK-47 is a powerful gun that deals 54 damage.",
+    "rarity": "Common",
+    "level": 1,
+    "attack": 54,
+    "image": "/img/gun/ak-47.png"
+  },
+  {
+    "id": 2,
+    "name": "AK-47",
+    "description": "AK-47 is a powerful gun that deals 62 damage.",
+    "rarity": "Common",
+    "level": 2,
+    "attack": 62,
+    "image": "/img/gun/ak-47.png"
+  },
+  {
+    "id": 3,
+    "name": "AK-47",
+    "description": "AK-47 is a powerful gun that deals 72 damage.",
+    "rarity": "Rare",
+    "level": 3,
+    "attack": 72,
+    "image": "/img/gun/ak-47.png"
+  },
+  {
+    "id": 4,
+    "name": "AK-47",
+    "description": "AK-47 is a powerful gun that deals 81 damage.",
+    "rarity": "Epic",
+    "level": 4,
+    "attack": 81,
+    "image": "/img/gun/ak-47.png"
+  },
+  {
+    "id": 5,
+    "name": "AK-47",
+    "description": "AK-47 is a powerful gun that deals 90 damage.",
+    "rarity": "Legendary",
+    "level": 5,
+    "attack": 90,
+    "image": "/img/gun/ak-47.png"
+  },
+  {
+    "id": 6,
+    "name": "M4A1",
+    "description": "M4A1 is a powerful gun that deals 48 damage.",
+    "rarity": "Common",
+    "level": 1,
+    "attack": 48,
+    "image": "/img/gun/m4a1.png"
+  },
+  {
+    "id": 7,
+    "name": "M4A1",
+    "description": "M4A1 is a powerful gun that deals 56 damage.",
+    "rarity": "Common",
+    "level": 2,
+    "attack": 56,
+    "image": "/img/gun/m4a1.png"
+  },
+  {
+    "id": 8,
+    "name": "M4A1",
+    "description": "M4A1 is a powerful gun that deals 64 damage.",
+    "rarity": "Rare",
+    "level": 3,
+    "attack": 64,
+    "image": "/img/gun/m4a1.png"
+  },
+  {
+    "id": 9,
+    "name": "M4A1",
+    "description": "M4A1 is a powerful gun that deals 72 damage.",
+    "rarity": "Epic",
+    "level": 4,
+    "attack": 72,
+    "image": "/img/gun/m4a1.png"
+  },
+  {
+    "id": 10,
+    "name": "M4A1",
+    "description": "M4A1 is a powerful gun that deals 80 damage.",
+    "rarity": "Legendary",
+    "level": 5,
+    "attack": 80,
+    "image": "/img/gun/m4a1.png"
+  },
+  {
+    "id": 11,
+    "name": "M16A2",
+    "description": "M16A2 is a powerful gun that deals 36 damage.",
+    "rarity": "Common",
+    "level": 1,
+    "attack": 36,
+    "image": "/img/gun/M16A2.png"
+  },
+  {
+    "id": 12,
+    "name": "M16A2",
+    "description": "M16A2 is a powerful gun that deals 42 damage.",
+    "rarity": "Common",
+    "level": 2,
+    "attack": 42,
+    "image": "/img/gun/M16A2.png"
+  },
+  {
+    "id": 13,
+    "name": "M16A2",
+    "description": "M16A2 is a powerful gun that deals 48 damage.",
+    "rarity": "Rare",
+    "level": 3,
+    "attack": 48,
+    "image": "/img/gun/M16A2.png"
+  },
+  {
+    "id": 14,
+    "name": "M16A2",
+    "description": "M16A2 is a powerful gun that deals 54 damage.",
+    "rarity": "Epic",
+    "level": 4,
+    "attack": 54,
+    "image": "/img/gun/M16A2.png"
+  },
+  {
+    "id": 15,
+    "name": "M16A2",
+    "description": "M16A2 is a powerful gun that deals 60 damage.",
+    "rarity": "Legendary",
+    "level": 5,
+    "attack": 60,
+    "image": "/img/gun/M16A2.png"
+  },
+  {
+    "id": 16,
+    "name": "Desert Eagle",
+    "description": "Desert Eagle is a powerful gun that deals 57 damage.",
+    "rarity": "Common",
+    "level": 1,
+    "attack": 57,
+    "image": "/img/gun/desert_eagle.png"
+  },
+  {
+    "id": 17,
+    "name": "Desert Eagle",
+    "description": "Desert Eagle is a powerful gun that deals 66 damage.",
+    "rarity": "Common",
+    "level": 2,
+    "attack": 66,
+    "image": "/img/gun/desert_eagle.png"
+  },
+  {
+    "id": 18,
+    "name": "Desert Eagle",
+    "description": "Desert Eagle is a powerful gun that deals 76 damage.",
+    "rarity": "Rare",
+    "level": 3,
+    "attack": 76,
+    "image": "/img/gun/desert_eagle.png"
+  },
+  {
+    "id": 19,
+    "name": "Desert Eagle",
+    "description": "Desert Eagle is a powerful gun that deals 85 damage.",
+    "rarity": "Epic",
+    "level": 4,
+    "attack": 85,
+    "image": "/img/gun/desert_eagle.png"
+  },
+  {
+    "id": 20,
+    "name": "Desert Eagle",
+    "description": "Desert Eagle is a powerful gun that deals 95 damage.",
+    "rarity": "Legendary",
+    "level": 5,
+    "attack": 95,
+    "image": "/img/gun/desert_eagle.png"
+  },
+  {
+    "id": 21,
+    "name": "UMP-45",
+    "description": "UMP-45 is a powerful gun that deals 33 damage.",
+    "rarity": "Common",
+    "level": 1,
+    "attack": 33,
+    "image": "/img/gun/ump-45.png"
+  },
+  {
+    "id": 22,
+    "name": "UMP-45",
+    "description": "UMP-45 is a powerful gun that deals 38 damage.",
+    "rarity": "Common",
+    "level": 2,
+    "attack": 38,
+    "image": "/img/gun/ump-45.png"
+  },
+  {
+    "id": 23,
+    "name": "UMP-45",
+    "description": "UMP-45 is a powerful gun that deals 44 damage.",
+    "rarity": "Rare",
+    "level": 3,
+    "attack": 44,
+    "image": "/img/gun/ump-45.png"
+  },
+  {
+    "id": 24,
+    "name": "UMP-45",
+    "description": "UMP-45 is a powerful gun that deals 49 damage.",
+    "rarity": "Epic",
+    "level": 4,
+    "attack": 49,
+    "image": "/img/gun/ump-45.png"
+  },
+  {
+    "id": 25,
+    "name": "UMP-45",
+    "description": "UMP-45 is a powerful gun that deals 55 damage.",
+    "rarity": "Legendary",
+    "level": 5,
+    "attack": 55,
+    "image": "/img/gun/ump-45.png"
+  },
+  {
+    "id": 26,
+    "name": "AWP",
+    "description": "AWP is a powerful gun that deals 60 damage.",
+    "rarity": "Common",
+    "level": 1,
+    "attack": 60,
+    "image": "/img/gun/awp.png"
+  },
+  {
+    "id": 27,
+    "name": "AWP",
+    "description": "AWP is a powerful gun that deals 70 damage.",
+    "rarity": "Common",
+    "level": 2,
+    "attack": 70,
+    "image": "/img/gun/awp.png"
+  },
+  {
+    "id": 28,
+    "name": "AWP",
+    "description": "AWP is a powerful gun that deals 80 damage.",
+    "rarity": "Rare",
+    "level": 3,
+    "attack": 80,
+    "image": "/img/gun/awp.png"
+  },
+  {
+    "id": 29,
+    "name": "AWP",
+    "description": "AWP is a powerful gun that deals 90 damage.",
+    "rarity": "Epic",
+    "level": 4,
+    "attack": 90,
+    "image": "/img/gun/awp.png"
+  },
+  {
+    "id": 30,
+    "name": "AWP",
+    "description": "AWP is a powerful gun that deals 100 damage.",
+    "rarity": "Legendary",
+    "level": 5,
+    "attack": 100,
+    "image": "/img/gun/awp.png"
+  },
+  {
+    "id": 31,
+    "name": "MP5",
+    "description": "MP5 is a powerful gun that deals 42 damage.",
+    "rarity": "Common",
+    "level": 1,
+    "attack": 42,
+    "image": "/img/gun/mp5.png"
+  },
+  {
+    "id": 32,
+    "name": "MP5",
+    "description": "MP5 is a powerful gun that deals 49 damage.",
+    "rarity": "Common",
+    "level": 2,
+    "attack": 49,
+    "image": "/img/gun/mp5.png"
+  },
+  {
+    "id": 33,
+    "name": "MP5",
+    "description": "MP5 is a powerful gun that deals 56 damage.",
+    "rarity": "Rare",
+    "level": 3,
+    "attack": 56,
+    "image": "/img/gun/mp5.png"
+  },
+  {
+    "id": 34,
+    "name": "MP5",
+    "description": "MP5 is a powerful gun that deals 63 damage.",
+    "rarity": "Epic",
+    "level": 4,
+    "attack": 63,
+    "image": "/img/gun/mp5.png"
+  },
+  {
+    "id": 35,
+    "name": "MP5",
+    "description": "MP5 is a powerful gun that deals 70 damage.",
+    "rarity": "Legendary",
+    "level": 5,
+    "attack": 70,
+    "image": "/img/gun/mp5.png"
+  },
+  {
+    "id": 36,
+    "name": "Glock-18",
+    "description": "Glock-18 is a powerful gun that deals 24 damage.",
+    "rarity": "Common",
+    "level": 1,
+    "attack": 24,
+    "image": "/img/gun/glock-18.png"
+  },
+  {
+    "id": 37,
+    "name": "Glock-18",
+    "description": "Glock-18 is a powerful gun that deals 28 damage.",
+    "rarity": "Common",
+    "level": 2,
+    "attack": 28,
+    "image": "/img/gun/glock-18.png"
+  },
+  {
+    "id": 38,
+    "name": "Glock-18",
+    "description": "Glock-18 is a powerful gun that deals 32 damage.",
+    "rarity": "Rare",
+    "level": 3,
+    "attack": 32,
+    "image": "/img/gun/glock-18.png"
+  },
+  {
+    "id": 39,
+    "name": "Glock-18",
+    "description": "Glock-18 is a powerful gun that deals 36 damage.",
+    "rarity": "Epic",
+    "level": 4,
+    "attack": 36,
+    "image": "/img/gun/glock-18.png"
+  },
+  {
+    "id": 40,
+    "name": "Glock-18",
+    "description": "Glock-18 is a powerful gun that deals 40 damage.",
+    "rarity": "Legendary",
+    "level": 5,
+    "attack": 40,
+    "image": "/img/gun/glock-18.png"
+  },
+  {
+    "id": 41,
+    "name": "FAMAS",
+    "description": "FAMAS is a powerful gun that deals 39 damage.",
+    "rarity": "Common",
+    "level": 1,
+    "attack": 39,
+    "image": "/img/gun/famas.png"
+  },
+  {
+    "id": 42,
+    "name": "FAMAS",
+    "description": "FAMAS is a powerful gun that deals 45 damage.",
+    "rarity": "Common",
+    "level": 2,
+    "attack": 45,
+    "image": "/img/gun/famas.png"
+  },
+  {
+    "id": 43,
+    "name": "FAMAS",
+    "description": "FAMAS is a powerful gun that deals 52 damage.",
+    "rarity": "Rare",
+    "level": 3,
+    "attack": 52,
+    "image": "/img/gun/famas.png"
+  },
+  {
+    "id": 44,
+    "name": "FAMAS",
+    "description": "FAMAS is a powerful gun that deals 58 damage.",
+    "rarity": "Epic",
+    "level": 4,
+    "attack": 58,
+    "image": "/img/gun/famas.png"
+  },
+  {
+    "id": 45,
+    "name": "FAMAS",
+    "description": "FAMAS is a powerful gun that deals 65 damage.",
+    "rarity": "Legendary",
+    "level": 5,
+    "attack": 65,
+    "image": "/img/gun/famas.png"
+  },
+  {
+    "id": 46,
+    "name": "SCAR-H",
+    "description": "SCAR-H is a powerful gun that deals 51 damage.",
+    "rarity": "Common",
+    "level": 1,
+    "attack": 51,
+    "image": "/img/gun/scar-h.png"
+  },
+  {
+    "id": 47,
+    "name": "SCAR-H",
+    "description": "SCAR-H is a powerful gun that deals 59 damage.",
+    "rarity": "Common",
+    "level": 2,
+    "attack": 59,
+    "image": "/img/gun/scar-h.png"
+  },
+  {
+    "id": 48,
+    "name": "SCAR-H",
+    "description": "SCAR-H is a powerful gun that deals 68 damage.",
+    "rarity": "Rare",
+    "level": 3,
+    "attack": 68,
+    "image": "/img/gun/scar-h.png"
+  },
+  {
+    "id": 49,
+    "name": "SCAR-H",
+    "description": "SCAR-H is a powerful gun that deals 76 damage.",
+    "rarity": "Epic",
+    "level": 4,
+    "attack": 76,
+    "image": "/img/gun/scar-h.png"
+  },
+  {
+    "id": 50,
+    "name": "SCAR-H",
+    "description": "SCAR-H is a powerful gun that deals 85 damage.",
+    "rarity": "Legendary",
+    "level": 5,
+    "attack": 85,
+    "image": "/img/gun/scar-h.png"
+  },
+  {
+    "id": 51,
+    "name": "P90",
+    "description": "P90 is a powerful gun that deals 45 damage.",
+    "rarity": "Common",
+    "level": 1,
+    "attack": 45,
+    "image": "/img/gun/p90.png"
+  },
+  {
+    "id": 52,
+    "name": "P90",
+    "description": "P90 is a powerful gun that deals 52 damage.",
+    "rarity": "Common",
+    "level": 2,
+    "attack": 52,
+    "image": "/img/gun/p90.png"
+  },
+  {
+    "id": 53,
+    "name": "P90",
+    "description": "P90 is a powerful gun that deals 60 damage.",
+    "rarity": "Rare",
+    "level": 3,
+    "attack": 60,
+    "image": "/img/gun/p90.png"
+  },
+  {
+    "id": 54,
+    "name": "P90",
+    "description": "P90 is a powerful gun that deals 67 damage.",
+    "rarity": "Epic",
+    "level": 4,
+    "attack": 67,
+    "image": "/img/gun/p90.png"
+  },
+  {
+    "id": 55,
+    "name": "P90",
+    "description": "P90 is a powerful gun that deals 75 damage.",
+    "rarity": "Legendary",
+    "level": 5,
+    "attack": 75,
+    "image": "/img/gun/p90.png"
+  },
+  {
+    "id": 56,
+    "name": "MAC-10",
+    "description": "MAC-10 is a powerful gun that deals 27 damage.",
+    "rarity": "Common",
+    "level": 1,
+    "attack": 27,
+    "image": "/img/gun/mac-10.png"
+  },
+  {
+    "id": 57,
+    "name": "MAC-10",
+    "description": "MAC-10 is a powerful gun that deals 31 damage.",
+    "rarity": "Common",
+    "level": 2,
+    "attack": 31,
+    "image": "/img/gun/mac-10.png"
+  },
+  {
+    "id": 58,
+    "name": "MAC-10",
+    "description": "MAC-10 is a powerful gun that deals 36 damage.",
+    "rarity": "Rare",
+    "level": 3,
+    "attack": 36,
+    "image": "/img/gun/mac-10.png"
+  },
+  {
+    "id": 59,
+    "name": "MAC-10",
+    "description": "MAC-10 is a powerful gun that deals 40 damage.",
+    "rarity": "Epic",
+    "level": 4,
+    "attack": 40,
+    "image": "/img/gun/mac-10.png"
+  },
+  {
+    "id": 60,
+    "name": "MAC-10",
+    "description": "MAC-10 is a powerful gun that deals 45 damage.",
+    "rarity": "Legendary",
+    "level": 5,
+    "attack": 45,
+    "image": "/img/gun/mac-10.png"
+  },
+  {
+    "id": 61,
+    "name": "M249",
+    "description": "M249 is a powerful gun that deals 52 damage.",
+    "rarity": "Common",
+    "level": 1,
+    "attack": 52,
+    "image": "/img/gun/m249.png"
+  },
+  {
+    "id": 62,
+    "name": "M249",
+    "description": "M249 is a powerful gun that deals 61 damage.",
+    "rarity": "Common",
+    "level": 2,
+    "attack": 61,
+    "image": "/img/gun/m249.png"
+  },
+  {
+    "id": 63,
+    "name": "M249",
+    "description": "M249 is a powerful gun that deals 70 damage.",
+    "rarity": "Rare",
+    "level": 3,
+    "attack": 70,
+    "image": "/img/gun/m249.png"
+  },
+  {
+    "id": 64,
+    "name": "M249",
+    "description": "M249 is a powerful gun that deals 79 damage.",
+    "rarity": "Epic",
+    "level": 4,
+    "attack": 79,
+    "image": "/img/gun/m249.png"
+  },
+  {
+    "id": 65,
+    "name": "M249",
+    "description": "M249 is a powerful gun that deals 88 damage.",
+    "rarity": "Legendary",
+    "level": 5,
+    "attack": 88,
+    "image": "/img/gun/m249.png"
+  },
+  {
+    "id": 66,
+    "name": "RPG-7",
+    "description": "RPG-7 is a powerful gun that deals 60 damage.",
+    "rarity": "Common",
+    "level": 1,
+    "attack": 60,
+    "image": "/img/gun/rpg-7.png"
+  },
+  {
+    "id": 67,
+    "name": "RPG-7",
+    "description": "RPG-7 is a powerful gun that deals 70 damage.",
+    "rarity": "Common",
+    "level": 2,
+    "attack": 70,
+    "image": "/img/gun/rpg-7.png"
+  },
+  {
+    "id": 68,
+    "name": "RPG-7",
+    "description": "RPG-7 is a powerful gun that deals 80 damage.",
+    "rarity": "Rare",
+    "level": 3,
+    "attack": 80,
+    "image": "/img/gun/rpg-7.png"
+  },
+  {
+    "id": 69,
+    "name": "RPG-7",
+    "description": "RPG-7 is a powerful gun that deals 90 damage.",
+    "rarity": "Epic",
+    "level": 4,
+    "attack": 90,
+    "image": "/img/gun/rpg-7.png"
+  },
+  {
+    "id": 70,
+    "name": "RPG-7",
+    "description": "RPG-7 is a powerful gun that deals 100 damage.",
+    "rarity": "Legendary",
+    "level": 5,
+    "attack": 100,
+    "image": "/img/gun/rpg-7.png"
+  },
+  {
+    "id": 71,
+    "name": "M14",
+    "description": "M14 is a powerful gun that deals 40 damage.",
+    "rarity": "Common",
+    "level": 1,
+    "attack": 40,
+    "image": "/img/gun/m14.png"
+  },
+  {
+    "id": 72,
+    "name": "M14",
+    "description": "M14 is a powerful gun that deals 47 damage.",
+    "rarity": "Common",
+    "level": 2,
+    "attack": 47,
+    "image": "/img/gun/m14.png"
+  },
+  {
+    "id": 73,
+    "name": "M14",
+    "description": "M14 is a powerful gun that deals 54 damage.",
+    "rarity": "Rare",
+    "level": 3,
+    "attack": 54,
+    "image": "/img/gun/m14.png"
+  },
+  {
+    "id": 74,
+    "name": "M14",
+    "description": "M14 is a powerful gun that deals 61 damage.",
+    "rarity": "Epic",
+    "level": 4,
+    "attack": 61,
+    "image": "/img/gun/m14.png"
+  },
+  {
+    "id": 75,
+    "name": "M14",
+    "description": "M14 is a powerful gun that deals 68 damage.",
+    "rarity": "Legendary",
+    "level": 5,
+    "attack": 68,
+    "image": "/img/gun/m14.png"
+  },
+  {
+    "id": 76,
+    "name": "UZI",
+    "description": "UZI is a powerful gun that deals 30 damage.",
+    "rarity": "Common",
+    "level": 1,
+    "attack": 30,
+    "image": "/img/gun/uzi.png"
+  },
+  {
+    "id": 77,
+    "name": "UZI",
+    "description": "UZI is a powerful gun that deals 35 damage.",
+    "rarity": "Common",
+    "level": 2,
+    "attack": 35,
+    "image": "/img/gun/uzi.png"
+  },
+  {
+    "id": 78,
+    "name": "UZI",
+    "description": "UZI is a powerful gun that deals 40 damage.",
+    "rarity": "Rare",
+    "level": 3,
+    "attack": 40,
+    "image": "/img/gun/uzi.png"
+  },
+  {
+    "id": 79,
+    "name": "UZI",
+    "description": "UZI is a powerful gun that deals 45 damage.",
+    "rarity": "Epic",
+    "level": 4,
+    "attack": 45,
+    "image": "/img/gun/uzi.png"
+  },
+  {
+    "id": 80,
+    "name": "UZI",
+    "description": "UZI is a powerful gun that deals 50 damage.",
+    "rarity": "Legendary",
+    "level": 5,
+    "attack": 50,
+    "image": "/img/gun/uzi.png"
+  },
+  {
+    "id": 81,
+    "name": "FN P90",
+    "description": "FN P90 is a powerful gun that deals 43 damage.",
+    "rarity": "Common",
+    "level": 1,
+    "attack": 43,
+    "image": "/img/gun/fn-p90.png"
+  },
+  {
+    "id": 82,
+    "name": "FN P90",
+    "description": "FN P90 is a powerful gun that deals 50 damage.",
+    "rarity": "Common",
+    "level": 2,
+    "attack": 50,
+    "image": "/img/gun/fn-p90.png"
+  },
+  {
+    "id": 83,
+    "name": "FN P90",
+    "description": "FN P90 is a powerful gun that deals 57 damage.",
+    "rarity": "Rare",
+    "level": 3,
+    "attack": 57,
+    "image": "/img/gun/fn-p90.png"
+  },
+  {
+    "id": 84,
+    "name": "FN P90",
+    "description": "FN P90 is a powerful gun that deals 64 damage.",
+    "rarity": "Epic",
+    "level": 4,
+    "attack": 64,
+    "image": "/img/gun/fn-p90.png"
+  },
+  {
+    "id": 85,
+    "name": "FN P90",
+    "description": "FN P90 is a powerful gun that deals 72 damage.",
+    "rarity": "Legendary",
+    "level": 5,
+    "attack": 72,
+    "image": "/img/gun/fn-p90.png"
+  },
+  {
+    "id": 86,
+    "name": "Default Handgun",
+    "description": "Default Handgun is a basic weapon that deals 10 damage.",
+    "rarity": "Common",
+    "level": 1,
+    "attack": 10,
+    "image": "/img/gun/default-handgun.png"
+  },
+  {
+    "id": 87,
+    "name": "Default Handgun",
+    "description": "Default Handgun is a basic weapon that deals 15 damage.",
+    "rarity": "Common",
+    "level": 2,
+    "attack": 15,
+    "image": "/img/gun/default-handgun.png"
+  },
+  {
+    "id": 88,
+    "name": "Default Handgun",
+    "description": "Default Handgun is a basic weapon that deals 20 damage.",
+    "rarity": "Rare",
+    "level": 3,
+    "attack": 20,
+    "image": "/img/gun/default-handgun.png"
+  },
+  {
+    "id": 89,
+    "name": "Default Handgun",
+    "description": "Default Handgun is a basic weapon that deals 25 damage.",
+    "rarity": "Epic",
+    "level": 4,
+    "attack": 25,
+    "image": "/img/gun/default-handgun.png"
+  },
+  {
+    "id": 90,
+    "name": "Default Handgun",
+    "description": "Default Handgun is a basic weapon that deals 30 damage.",
+    "rarity": "Legendary",
+    "level": 5,
+    "attack": 30,
+    "image": "/img/gun/default-handgun.png"
+  }
+]

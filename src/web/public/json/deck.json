@@ -1,0 +1,182 @@
+[
+  {
+    "address": "BIWwG2mFTYd5ycteI2FK-m7Q4wbd-DCWyIDK-msUV9M",
+    "name": "Alice",
+    "rank": 1,
+    "score": 1500,
+    "avatar": "/img/dumdum.png",
+    "deck": [
+      {
+        "id": 86,
+        "name": "Default Handgun",
+        "description": "Default Handgun is a basic weapon that deals 10 damage.",
+        "rarity": "Common",
+        "level": 1,
+        "attack": 10,
+        "image": "/img/gun/default-handgun.png"
+      },
+      {
+        "id": 86,
+        "name": "Default Handgun",
+        "description": "Default Handgun is a basic weapon that deals 10 damage.",
+        "rarity": "Common",
+        "level": 1,
+        "attack": 10,
+        "image": "/img/gun/default-handgun.png"
+      },
+      {
+        "id": 86,
+        "name": "Default Handgun",
+        "description": "Default Handgun is a basic weapon that deals 10 damage.",
+        "rarity": "Common",
+        "level": 1,
+        "attack": 10,
+        "image": "/img/gun/default-handgun.png"
+      }
+    ]
+  },
+  {
+    "address": "AIWwG2mGTYd5yeI2ddFK-m7Q4rbd-DCWyIDK-msUV9M",
+    "name": "Bob",
+    "rank": 2,
+    "score": 1450,
+    "avatar": "/img/1087.png",
+    "deck": [
+      {
+        "id": 86,
+        "name": "Default Handgun",
+        "description": "Default Handgun is a basic weapon that deals 10 damage.",
+        "rarity": "Common",
+        "level": 1,
+        "attack": 10,
+        "image": "/img/gun/default-handgun.png"
+      },
+      {
+        "id": 86,
+        "name": "Default Handgun",
+        "description": "Default Handgun is a basic weapon that deals 10 damage.",
+        "rarity": "Common",
+        "level": 1,
+        "attack": 10,
+        "image": "/img/gun/default-handgun.png"
+      },
+      {
+        "id": 86,
+        "name": "Default Handgun",
+        "description": "Default Handgun is a basic weapon that deals 10 damage.",
+        "rarity": "Common",
+        "level": 1,
+        "attack": 10,
+        "image": "/img/gun/default-handgun.png"
+      }
+    ]
+  },
+  {
+    "address": "NDWwG2mGTYd5yeI2ddFK-m7Q4rbd-DCWyIDK-msUV9M",
+    "name": "Charlie",
+    "rank": 3,
+    "score": 1400,
+    "avatar": "/img/1230.png",
+    "deck": [
+      {
+        "id": 86,
+        "name": "Default Handgun",
+        "description": "Default Handgun is a basic weapon that deals 10 damage.",
+        "rarity": "Common",
+        "level": 1,
+        "attack": 10,
+        "image": "/img/gun/default-handgun.png"
+      },
+      {
+        "id": 86,
+        "name": "Default Handgun",
+        "description": "Default Handgun is a basic weapon that deals 10 damage.",
+        "rarity": "Common",
+        "level": 1,
+        "attack": 10,
+        "image": "/img/gun/default-handgun.png"
+      },
+      {
+        "id": 86,
+        "name": "Default Handgun",
+        "description": "Default Handgun is a basic weapon that deals 10 damage.",
+        "rarity": "Common",
+        "level": 1,
+        "attack": 10,
+        "image": "/img/gun/default-handgun.png"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Diana",
+    "rank": 4,
+    "score": 1350,
+    "avatar": "/img/1728.png",
+    "deck": [
+      {
+        "id": 86,
+        "name": "Default Handgun",
+        "description": "Default Handgun is a basic weapon that deals 10 damage.",
+        "rarity": "Common",
+        "level": 1,
+        "attack": 10,
+        "image": "/img/gun/default-handgun.png"
+      },
+      {
+        "id": 86,
+        "name": "Default Handgun",
+        "description": "Default Handgun is a basic weapon that deals 10 damage.",
+        "rarity": "Common",
+        "level": 1,
+        "attack": 10,
+        "image": "/img/gun/default-handgun.png"
+      },
+      {
+        "id": 86,
+        "name": "Default Handgun",
+        "description": "Default Handgun is a basic weapon that deals 10 damage.",
+        "rarity": "Common",
+        "level": 1,
+        "attack": 10,
+        "image": "/img/gun/default-handgun.png"
+      }
+    ]
+  },
+  {
+    "address": "EDWwG2mGTYd5yeI2ddFK-m7Q4rbd-DCWyIDK-msUV9M",
+    "name": "Ethan",
+    "rank": 5,
+    "score": 1300,
+    "avatar": "/img/1857.png",
+    "deck": [
+      {
+        "id": 86,
+        "name": "Default Handgun",
+        "description": "Default Handgun is a basic weapon that deals 10 damage.",
+        "rarity": "Common",
+        "level": 1,
+        "attack": 10,
+        "image": "/img/gun/default-handgun.png"
+      },
+      {
+        "id": 86,
+        "name": "Default Handgun",
+        "description": "Default Handgun is a basic weapon that deals 10 damage.",
+        "rarity": "Common",
+        "level": 1,
+        "attack": 10,
+        "image": "/img/gun/default-handgun.png"
+      },
+      {
+        "id": 86,
+        "name": "Default Handgun",
+        "description": "Default Handgun is a basic weapon that deals 10 damage.",
+        "rarity": "Common",
+        "level": 1,
+        "attack": 10,
+        "image": "/img/gun/default-handgun.png"
+      }
+    ]
+  }
+]

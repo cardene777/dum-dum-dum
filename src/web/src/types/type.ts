@@ -24,12 +24,12 @@ export interface IGun extends ICard {
 }
 
 export interface IDeck {
-  deck: IGun[];
-  id: number;
-  name: string;
-  rank: number;
-  score: number;
-  avatar: string;
+  address: string;
+  name?: string;
+  rank?: number;
+  score?: number;
+  avatar?: string;
+  deck?: IGun[];
 }
 
 // Shop
