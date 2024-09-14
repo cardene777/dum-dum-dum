@@ -12,9 +12,12 @@ export const Header = () => {
   return (
     <header className="bg-[#0f0518] p-4 shadow-lg">
       <div className="px-10 flex justify-between items-center text-white">
-        <Link to="/" className="text-3xl font-bold text-[#b19cd9]">
-          Dum Dum Dum
-        </Link>
+        <div className="flex items-center justify-center space-x-2">
+          <img src="/img/icon.png" alt="Dum Dum Dum" className="w-12" />
+          <Link to="/" className="text-3xl font-bold text-[#b19cd9]">
+            Dum Dum Dum
+          </Link>
+        </div>
         <nav>
           <ul className="flex space-x-6 items-center justify-center">
             <li>
