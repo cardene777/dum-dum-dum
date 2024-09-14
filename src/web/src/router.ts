@@ -8,6 +8,7 @@ export type Path =
   | `/Collections`
   | `/Illustration`
   | `/MyCard`
+  | `/Nft`
   | `/OpenPack`
   | `/PackDetails`
   | `/PackResult`

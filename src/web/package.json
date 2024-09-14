@@ -8,10 +8,12 @@
     "build": "tsc && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "deploy-contracts": "node ./scripts/deploy.mjs"
   },
   "dependencies": {
     "@generouted/react-router": "^1.19.6",
+    "aonote": "^0.6.5",
     "arweave-wallet-kit": "^1.0.4",
     "arweavekit": "^1.5.1",
     "framer-motion": "^11.5.2",
@@ -19,7 +21,9 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-modal": "^3.16.1",
-    "react-router-dom": "^6.26.1"
+    "react-router-dom": "^6.26.1",
+    "react-toastify": "^10.0.5",
+    "replace-in-file": "^8.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

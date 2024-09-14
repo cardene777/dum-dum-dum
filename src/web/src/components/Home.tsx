@@ -18,12 +18,12 @@ export const Home = () => {
     return () => clearInterval(interval);
   }, []);
     return (
-      <div className="bg-bg-main h-screen w-screen">
+      <div className="bg-bg-main h-full w-full">
         <div className="min-h-screen bg-gradient-to-b from-[#1a0b2e] to-[#2f1b4e] text-white">
           <Header />
 
           {/* Main Content */}
-          <main className="container mx-auto py-12 mt-10">
+          <main className="container mx-auto mt-12">
             {/* Hero Section */}
             <section className="text-center mb-16">
               <div className="z-10 flex flex-col items-center justify-center">

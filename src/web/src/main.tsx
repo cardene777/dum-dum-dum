@@ -7,8 +7,8 @@ import { ArweaveWalletKit } from "arweave-wallet-kit";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ArweaveWalletKit
-      theme={{
+      <ArweaveWalletKit
+        theme={{
         displayTheme: "dark",
         accent: {
           r: 238,
@@ -19,7 +19,7 @@ createRoot(document.getElementById("root")!).render(
     >
       <UserProvider>
         <AppRoutes />
-      </UserProvider>
-    </ArweaveWalletKit>
+        </UserProvider>
+      </ArweaveWalletKit>
   </StrictMode>
 );

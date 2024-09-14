@@ -3,26 +3,19 @@ import { ShoppingCart, Package, Info } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Header } from "../components/Header";
 import { Link } from "react-router-dom";
-
-interface Pack {
-  id: number;
-  name: string;
-  price: number;
-  description: string;
-  image: string;
-}
+import { IPack } from "../types/type";
 
 interface SelectedPacks {
   [key: number]: { quantity: number };
 }
 
-const packs: Pack[] = [
+const packs: IPack[] = [
   {
     id: 1,
     name: "Part 1",
-    price: 100,
+    price: 0.001,
     description: "Part 1",
-    image: "/img/gun/ak-47.png",
+    image: "/img/nft/collection/pack.png",
   },
   // {
   //   id: 2,

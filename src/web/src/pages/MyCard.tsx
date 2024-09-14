@@ -1,9 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Header } from "../components/Header";
 import mockGuns from "../../public/json/gun.json";
 import mockArmor from "../../public/json/armor.json";
+import { getHolderAssetData } from "../lib/query-assets";
+import { useActiveAddress } from "arweave-wallet-kit";
 
 const UserCardCollection = () => {
+  const address = useActiveAddress();
   const [guns, setGuns] = useState(mockGuns);
   const [filterRarity, setFilterRarity] = useState("");
   const [filterLevel, setFilterLevel] = useState("");
@@ -11,7 +14,7 @@ const UserCardCollection = () => {
   const [selectedArmor, setSelectedArmor] = useState(mockArmor[0]); // デフォルトでID1の防具を選択
 
   // フィルター処理
-  const filterCards = () => {
+  const filterCards = useCallback(() => {
     let filteredCards = [...mockGuns]; // mockGunsをベースにフィルターを適用
 
     // レア度フィルター
@@ -29,10 +32,10 @@ const UserCardCollection = () => {
     }
 
     return filteredCards;
-  };
+  }, [filterRarity, filterLevel]); // 依存配列にフィルター状態を追加
 
   // ソート処理
-  const sortCards = (cards: typeof mockGuns) => {
+  const sortCards = useCallback((cards: typeof mockGuns) => {
     const sortedCards = [...cards];
 
     if (sortBy === "rarity") {
@@ -52,14 +55,14 @@ const UserCardCollection = () => {
     }
 
     return sortedCards;
-  };
+  }, [sortBy]); // sortByを依存配列に追加
 
   // フィルターとソートが変更されたら自動的にリストを更新
   useEffect(() => {
     const filteredCards = filterCards();
     const sortedAndFilteredCards = sortCards(filteredCards);
     setGuns(sortedAndFilteredCards);
-  }, [filterRarity, filterLevel, sortBy]); // 依存関係にフィルターとソートの状態を設定
+  }, [filterCards, sortBy, sortCards]); // sortByを依存配列に追加
 
   // 防具変更処理
   const handleArmorChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -71,6 +74,29 @@ const UserCardCollection = () => {
       setSelectedArmor(selectedArmorItem);
     }
   };
+
+  useEffect(() => {
+    if (address) {
+      const fetchAssets = async () => {
+        try {
+          const assets = await getHolderAssetData(address);
+          console.log(`assets: ${JSON.stringify(assets)}`);
+          const matchedGuns = assets
+            .map((asset: { title: string; id: any; }) => {
+              const mockGun = mockGuns.find((gun) => gun.name === asset.title);
+              return mockGun ? { ...mockGun, id: asset.id } : null;
+            })
+            .filter((gun: null) => gun !== null); // Filter out any unmatched assets
+
+          setGuns(matchedGuns);
+          // setGuns(assets);
+        } catch (error) {
+          console.error("Failed to fetch assets:", error);
+        }
+      };
+      fetchAssets();
+    }
+  }, [address]);
 
   return (
     <>

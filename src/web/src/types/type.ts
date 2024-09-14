@@ -31,3 +31,12 @@ export interface IDeck {
   score: number;
   avatar: string;
 }
+
+// Shop
+export interface IPack {
+  id: number;
+  name: string;
+  price: number;
+  description: string;
+  image: string;
+}

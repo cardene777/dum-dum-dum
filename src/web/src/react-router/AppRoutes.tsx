@@ -9,7 +9,7 @@ import Shop from "../pages/Shop.tsx";
 import OpenPack from "../pages/OpenPack.tsx";
 import PackDetails from "../pages/PackDetails.tsx";
 import PackResult from "../pages/PackResult.tsx";
-
+import Nft from "../pages/Nft.tsx";
 const AppRoutes = () => {
   return (
     <BrowserRouter>
@@ -24,6 +24,7 @@ const AppRoutes = () => {
         <Route path="/open-pack" element={<OpenPack />} />
         <Route path="/pack-details" element={<PackDetails />} />
         <Route path="/pack-result" element={<PackResult />} />
+        <Route path="/nft" element={<Nft />} />
       </Routes>
     </BrowserRouter>
   );

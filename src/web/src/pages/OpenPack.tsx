@@ -2,16 +2,83 @@ import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { IGun } from "../types/type";
 import { useNavigate, useLocation } from "react-router-dom";
-import guns from "../../public/json/gun.json";
 import weapons from "../../public/json/weapon.json";
+import { useActiveAddress } from "arweave-wallet-kit";
+import { toast } from "react-toastify";
+import { postAsset } from "../lib/post";
+import mockGuns from "../../public/json/gun.json";
 
 const Pack: React.FC = () => {
+  const address = useActiveAddress();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [selectedPack, setSelectedPack] = useState(0);
   const [openedPacks, setOpenedPacks] = useState<Record<number, IGun[]>>({});
   const [isOpening, setIsOpening] = useState(false);
   const [openedPackCount, setOpenedPackCount] = useState(0);
+  const [showNextButton, setShowNextButton] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+
+  const packOpen = async () => {
+    if (isOpening || openedPacks[selectedPack]) return;
+
+    setIsOpening(true);
+    setIsLoading(true);
+    const newCards: IGun[] = [];
+
+    try {
+      for (let i = 0; i < 3; i++) {
+        const randomGun = mockGuns[Math.floor(Math.random() * mockGuns.length)];
+
+        const fileData = await fetch(randomGun.image);
+        const blob = await fileData.blob();
+        const file = new File([blob], randomGun.name, {
+          type: fileData.headers.get("content-type") || "image/png",
+        });
+
+        const transactionId = await postAsset({
+          file: file,
+          title: randomGun.name,
+          description: randomGun.description || "",
+          license: "default",
+          payment: "",
+          tags: [
+            { name: "Rarity", value: randomGun.rarity },
+            { name: "Level", value: randomGun.level.toString() },
+            { name: "Attack", value: randomGun.attack.toString() },
+            { name: "Type", value: "image" },
+            { name: "Content-Type", value: "image/png" },
+          ],
+          creatorName: "cardene",
+          creatorId: address || "",
+        });
+        toast(`Atomic asset uploaded! ${transactionId}`);
+
+        // Add the gun to the new cards array
+        newCards.push({ ...randomGun, id: randomGun.id });
+      }
+
+      // Store the opened pack
+      setOpenedPacks((prev) => ({ ...prev, [selectedPack]: newCards }));
+      setOpenedPackCount((prevCount) => prevCount + 1);
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      throw error;
+    } finally {
+      setIsLoading(false);
+      setIsOpening(false);
+    }
+  };
 
   // クエリパラメータからパック情報を取得
   const queryParams = new URLSearchParams(location.search);
@@ -25,27 +92,12 @@ const Pack: React.FC = () => {
   // パックの総数を取得
   const totalPacks = packData.length;
 
-  // 全パックが開封されたら自動的に pack-result に遷移する
+  // 全パックが開封されたら「Next」ボタンを表示
   useEffect(() => {
     if (openedPackCount === totalPacks) {
-      alert("全てのパックを開封しました！");
-      console.log(`openedPacks: ${JSON.stringify(openedPacks)}`);
-
-      // 開封したカードのIDだけをクエリパラメータに追加する
-      const openedPacksIds = Object.values(openedPacks)
-        .flat()
-        .map((card) => `id=${card.id}`)
-        .join("&");
-        console.log(`openedPacksIds: ${JSON.stringify(openedPacksIds)}`);
-      navigate(`/pack-result?${openedPacksIds}`);
+      setShowNextButton(true);
     }
-  }, [openedPackCount, navigate, totalPacks, openedPacks]);
-
-  const handlePrevPack = () => {
-    if (selectedPack > 0) {
-      setSelectedPack((prev) => prev - 1);
-    }
-  };
+  }, [openedPackCount, totalPacks]);
 
   const handleNextPack = () => {
     if (selectedPack < totalPacks - 1) {
@@ -53,24 +105,20 @@ const Pack: React.FC = () => {
     }
   };
 
-  const openPack = () => {
-    if (isOpening || openedPacks[selectedPack]) return;
-
-    setIsOpening(true);
-    const newCards: IGun[] = [];
-    for (let i = 0; i < 3; i++) {
-      const randomCard = guns[Math.floor(Math.random() * guns.length)];
-      console.log(`randomCard: ${JSON.stringify(randomCard)}`);
-      newCards.push({ ...randomCard, id: randomCard.id });
+  const handlePrevPack = () => {
+    if (selectedPack > 0) {
+      setSelectedPack((prev) => prev - 1);
     }
+  };
 
-    console.log(`newCards: ${JSON.stringify(newCards)}`);
-
-    setTimeout(() => {
-      setOpenedPacks((prev) => ({ ...prev, [selectedPack]: newCards }));
-      setOpenedPackCount((prevCount) => prevCount + 1);
-      setIsOpening(false);
-    }, 1000);
+  const handleNextPage = () => {
+    // 開封したカードのIDだけをクエリパラメータに追加する
+    const openedPacksIds = Object.values(openedPacks)
+      .flat()
+      .map((card) => `id=${card.id}`)
+      .join("&");
+    console.log(`openedPacksIds: ${JSON.stringify(openedPacksIds)}`);
+    navigate(`/pack-result?${openedPacksIds}`);
   };
 
   const renderPack = (index: number, size: "small" | "large") => {
@@ -96,6 +144,17 @@ const Pack: React.FC = () => {
       <h1 className="text-4xl font-bold text-center mb-8 text-gray-200">
         Open Pack
       </h1>
+
+      {showNextButton && (
+        <div className="text-center mb-4">
+          <button
+            onClick={handleNextPage}
+            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Next
+          </button>
+        </div>
+      )}
 
       <p className="text-center mb-4 text-xl text-gray-300">
         Opened Pack: {openedPackCount} / {totalPacks}
@@ -169,12 +228,19 @@ const Pack: React.FC = () => {
       </div>
 
       <div className="text-center mb-4">
-        <button
-          onClick={openPack}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        >
-          開封する
-        </button>
+        {isLoading ? (
+          <p className="text-lg">Loading...</p>
+        ) : (
+          <button
+            onClick={packOpen}
+            disabled={isLoading}
+            className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${
+              isLoading ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+          >
+            開封する
+          </button>
+        )}
       </div>
 
       {openedPacks[selectedPack] && (
