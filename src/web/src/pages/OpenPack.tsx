@@ -122,19 +122,27 @@ const Pack: React.FC = () => {
   };
 
   const renderPack = (index: number, size: "small" | "large") => {
-    const pack = weapons.find((weapon) => weapon.id === packData[index].id);
+    const packs: IPack[] = [
+  {
+    id: 1,
+    name: "Part 1",
+    price: 0.001,
+    description: "Part 1",
+    image: "/img/nft/collection/pack.png",
+      }
+    ]
     const sizeClass = size === "large" ? "w-64 h-96" : "w-32 h-48";
 
-    if (!pack) return null;
+    if (!packs[0]) return null;
 
     return (
-      <div className={`${sizeClass} mx-2 p-2 border-2 border-gray-400`}>
+      <div className={`${sizeClass} mx-2 p-2 border-2 border-gray-400 flex flex-col justify-center items-center`}>
         <img
-          src={pack.image}
-          alt={pack.name}
+          src={packs[0].image}
+          alt={packs[0].name}
           className="w-full h-full object-cover"
         />
-        <p className="text-center">{pack.name}</p>
+        <p className="text-center">{packs[0].name}</p>
       </div>
     );
   };
