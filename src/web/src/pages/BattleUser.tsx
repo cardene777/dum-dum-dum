@@ -11,6 +11,7 @@ const BattleRegistrationList: React.FC = () => {
 
   const [decks, setDecks] = useState<IDeck[]>(users); // ユーザーのデッキを管理
   const [openUsers, setOpenUsers] = useState<number[]>([]); // 現在開いているユーザーIDのリスト
+  const [remainingTime, setRemainingTime] = useState<string>(""); // 残り時間を管理
 
   useEffect(() => {
     // 各ユーザーにランダムなデッキ（武器）を割り当てる
@@ -19,6 +20,38 @@ const BattleRegistrationList: React.FC = () => {
       deck: getRandomGuns(mockGuns, 3), // ランダムに3つの武器を選択
     }));
     setDecks(usersWithRandomDecks);
+  }, []);
+
+  // 時刻のフォーマット
+  const formatTime = (hours: number, minutes: number, seconds: number) => {
+    return `${hours.toString().padStart(2, "0")}:${minutes
+      .toString()
+      .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+  };
+
+  // 残り時間の計算
+  const calculateRemainingTime = () => {
+    const now = new Date();
+    const midnight = new Date();
+    midnight.setHours(23, 59, 59, 999); // 23:59:59.999
+
+    // 差分を計算して秒、分、時に変換
+    const difference = midnight.getTime() - now.getTime();
+    const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((difference / (1000 * 60)) % 60);
+    const seconds = Math.floor((difference / 1000) % 60);
+
+    return formatTime(hours, minutes, seconds);
+  };
+
+  // タイマーの設定
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const timeLeft = calculateRemainingTime();
+      setRemainingTime(timeLeft);
+    }, 1000);
+
+    return () => clearInterval(timer);
   }, []);
 
   // 武器情報の表示/非表示を切り替える処理（クリックされた行の3人を開く）
@@ -39,7 +72,6 @@ const BattleRegistrationList: React.FC = () => {
 
   // ユーザー登録ボタンのクリック処理
   const handleUserRegister = async () => {
-    // ユーザー登録処理を実装（ここでは簡単なアラートを表示）
     alert("ユーザー登録が完了しました！");
   };
 
@@ -51,11 +83,18 @@ const BattleRegistrationList: React.FC = () => {
           Battle Registration List
         </h1>
 
+        {/* 残り時間の表示 */}
+        <div className="text-center mb-8">
+          <p className="text-2xl font-semibold text-[#7fffd4]">
+            Time Remaining: {remainingTime}
+          </p>
+        </div>
+
         {/* ユーザー登録ボタン */}
         <div className="flex justify-center mb-8">
           <button
             onClick={handleUserRegister}
-            className={` text-[#1a0b2e] p-3 rounded-md font-bold  transition-colors ${
+            className={`text-[#1a0b2e] p-3 rounded-md font-bold transition-colors ${
               connected
                 ? "cursor-pointer	bg-[#7fffd4] hover:bg-[#5ec8b1]"
                 : "cursor-not-allowed	bg-gray-400"
@@ -101,14 +140,12 @@ const BattleRegistrationList: React.FC = () => {
                           rarityStyles[card.rarity as keyof typeof rarityStyles]
                         } rounded-lg p-4 shadow-lg transition-all hover:scale-105`}
                       >
-                        {/* 左側に画像 */}
                         <img
                           src={card.image}
                           alt={card.name}
                           className="w-24 h-24 object-cover rounded-md mr-4"
                         />
 
-                        {/* 右側にカード情報 */}
                         <div className="flex flex-col justify-between">
                           <h3 className="text-lg font-bold text-[#7fffd4]">
                             {card.name}
@@ -120,7 +157,6 @@ const BattleRegistrationList: React.FC = () => {
                             レベル: Lv.{card.level}
                           </p>
 
-                          {/* 攻撃力と防御力 */}
                           <div className="flex justify-between items-center mt-2">
                             <div className="flex flex-col items-center">
                               <p className="text-sm text-[#7fffd4]">攻撃力</p>

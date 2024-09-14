@@ -166,7 +166,7 @@ const UserCardCollection = () => {
             >
               {/* 画像 */}
               <img
-                src="/img/dumdum.png"
+                src={card.image}
                 alt={card.name}
                 className="w-full object-cover rounded-md mb-4"
               />

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { IGun } from "../types/type";
+import { IGun, IPack } from "../types/type";
 import { useNavigate, useLocation } from "react-router-dom";
-import weapons from "../../public/json/weapon.json";
 import { useActiveAddress } from "arweave-wallet-kit";
 import { toast } from "react-toastify";
 import { postAsset } from "../lib/post";
