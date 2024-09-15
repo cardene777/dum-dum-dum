@@ -328,7 +328,7 @@ describe("Atomic Notes", function () {
         get: { name: "Game", json: true },
       }),
     ).out
-
+    console.log(game)
     expect(game.executed).to.eql(true)
   })
 
@@ -341,6 +341,7 @@ describe("Atomic Notes", function () {
         get: { data: true, json: true },
       }),
     ).out
+    console.log(rank)
     expect(rank[0].score).to.eql(9)
   })
 })

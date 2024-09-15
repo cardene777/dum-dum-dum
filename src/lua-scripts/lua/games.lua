@@ -1,5 +1,6 @@
 local json = require('json')
 local ao = require("ao")
+local crypto = require(".crypto");
 
 games = games or {}
 origin = orign or nil
@@ -181,19 +182,63 @@ Handlers.add(
     assert(games[msg.Tags.ID].executed == false, "already executed!")
     local id = getGameID(msg.Timestamp)
     assert(tonumber(msg.Tags.ID) < tonumber(id), "the game has not ended!")
-    games[msg.Tags.ID].executed = true
+    assert(games[msg.Tags.ID].numbers == nil, "numbers are already generated!")
+    games[msg.Tags.ID].numbers = {}
+    local numbers = {}
+    math.randomseed(msg.Timestamp)
+    for i = 0, 2, 1 do
+      table.insert(numbers, math.random(0, 100))
+    end
+    ao.send({
+	Target = ao.id,
+	Action = 'Complete-Game',
+	Tags = { ID = msg.Tags.ID },
+	Data = json.encode(numbers)
+    })
+    Handlers.utils.reply('executed!')(msg) 
+  end
+)
 
+
+local shuffle = function(vals, nums)
+  for i = 1, #vals do
+    local j = nums[i % #nums + 1] % #vals + 1
+    vals[i], vals[j] = vals[j], vals[i]
+  end
+  return vals
+end
+
+Handlers.add(
+  'Complete-Game',
+  Handlers.utils.hasMatchingTag('Action', 'Complete-Game'),
+  function(msg)
+    assert(msg.From == ao.id, "only process itself can execute!")
+    assert(init == true and init_guns == true, "game has not been initialized!")
+    assert(math.type(tonumber(msg.Tags.ID)) == 'integer', 'ID is required!')
+    assert(games[msg.Tags.ID] ~= nil, "game does not exist!")
+    assert(games[msg.Tags.ID].executed == false, "already executed!")
+    local id = getGameID(msg.Timestamp)
+    assert(tonumber(msg.Tags.ID) < tonumber(id), "the game has not ended!")
+    local numbers = json.decode(msg.Data)
+    games[msg.Tags.ID].numbers = numbers
+    games[msg.Tags.ID].executed = true
     local attacks = {}
     for key, val in pairs(games[msg.Tags.ID].players) do
       if val.pending == false then
 	attacks[key] = attacks[key] or 0
-	local i = 0
+	local guns = {}
 	for key2, val2 in pairs(val.guns) do
+	  table.insert(guns, { id = key2, val = val2 })
+	end
+	guns = shuffle(guns, numbers)
+	local i = 0
+	for i2, val2 in ipairs(guns) do
 	  if i < 3 then
-	    attacks[key] = attacks[key] + val2.attack
+	    attacks[key] = attacks[key] + val2.val.attack
 	  end
 	  i = i + 1
 	end
+	
       end
     end
 
