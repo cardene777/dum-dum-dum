@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "address": "BIWwG2mFTYd5ycteI2FK-m7Q4wbd-DCWyIDK-msUV9M",
     "name": "Alice",
     "rank": 1,
     "score": 1500,
@@ -8,7 +8,7 @@
     "deck": []
   },
   {
-    "id": 2,
+    "address": "AIWwG2mGTYd5yeI2ddFK-m7Q4rbd-DCWyIDK-msUV9M",
     "name": "Bob",
     "rank": 2,
     "score": 1450,
@@ -16,7 +16,7 @@
     "deck": []
   },
   {
-    "id": 3,
+    "address": "NDWwG2mGTYd5yeI2ddFK-m7Q4rbd-DCWyIDK-msUV9M",
     "name": "Charlie",
     "rank": 3,
     "score": 1400,
@@ -32,19 +32,11 @@
     "deck": []
   },
   {
-    "id": 5,
+    "address": "EDWwG2mGTYd5yeI2ddFK-m7Q4rbd-DCWyIDK-msUV9M",
     "name": "Ethan",
     "rank": 5,
     "score": 1300,
     "avatar": "/img/1857.png",
-    "deck": []
-  },
-  {
-    "id": 6,
-    "name": "Ethan",
-    "rank": 4,
-    "score": 1000,
-    "avatar": "/img/Crypto_Cherie_nft.png",
     "deck": []
   }
 ]

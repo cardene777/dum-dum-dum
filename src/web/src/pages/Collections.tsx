@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import mockGuns from "../../public/json/gun.json";
+import mockGuns from "../../public/json/gun-collection.json";
 import { IGun } from "../types/type";
 import { Header } from "../components/Header";
 

@@ -11,13 +11,14 @@ const getRandomGuns = (guns: IGun[], count: number) => {
   return shuffled.slice(0, count);
 };
 
+
 const UserRanking = () => {
-  const [decks, setDecks] = useState<IDeck[]>(users);
+  const [decks, setDecks] = useState<IDeck[]>(users as IDeck[]);
   const [openUser, setOpenUser] = useState<number | null>(null); // 現在開いているユーザーID
 
   useEffect(() => {
     // 各ユーザーにランダムなデッキ（武器）を割り当てる
-    const usersWithRandomDecks: IDeck[] = users.map((user) => ({
+    const usersWithRandomDecks: IDeck[] = (users as IDeck[]).map((user) => ({
       ...user,
       deck: getRandomGuns(mockGuns, 3), // ランダムに3つの武器を選択
     }));
@@ -38,9 +39,9 @@ const UserRanking = () => {
           Battle Result Ranking
         </h1>
         <div className="mx-auto">
-          {decks.map((user) => (
+          {decks.map((user, index) => (
             <div
-              key={user.id}
+              key={user.address}
               className="mb-8 bg-[#2a1b3d] border-[#b19cd9] border-2 rounded-lg shadow-lg p-6"
             >
               <div className="flex items-center mb-4">
@@ -61,18 +62,18 @@ const UserRanking = () => {
                   <p className="text-lg text-[#b19cd9]">スコア: {user.score}</p>
                 </div>
                 <div className="flex items-center">
-                  {/* Weaponセクションをクリックで開閉 */}
+                  {/* Weaponセクョンをクリックで開閉 */}
                   <h3
                     className="text-xl font-semibold text-[#7fffd4] cursor-pointer"
-                    onClick={() => toggleWeaponVisibility(user.id)}
+                    onClick={() => toggleWeaponVisibility(index)}
                   >
-                    Weapon {openUser === user.id ? "▲" : "▼"}
+                    Weapon {openUser === index ? "▲" : "▼"}
                   </h3>
                 </div>
               </div>
-              {openUser === user.id && (
+              {openUser === index && (
                 <div className="grid grid-cols-3 gap-4">
-                  {user.deck.map((gun: IGun, index: number) => (
+                  {user.deck?.map((gun: IGun, index: number) => (
                     <div
                       key={index}
                       className="bg-[#3a2b4d] p-2 rounded-lg text-center"

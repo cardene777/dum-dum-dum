@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 export const Home = () => {
   const [playerCount, setPlayerCount] = useState(1337);
-  const [battleCount, setBattleCount] = useState(42069);
-  const [prizePool, setPrizePool] = useState(100000);
+  const [battleCount, setBattleCount] = useState(100);
+  const [prizePool, setPrizePool] = useState(1000);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -68,7 +68,7 @@ export const Home = () => {
                   Prize Pool
                 </h3>
                 <p className="text-4xl font-bold text-[#b19cd9]">
-                  ${prizePool.toLocaleString()}
+                  {prizePool.toLocaleString()} AR
                 </p>
               </div>
             </section>
