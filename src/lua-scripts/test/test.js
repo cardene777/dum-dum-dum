@@ -15,6 +15,10 @@ const gunsPath = `${cacheDir}/guns.json`
 const luaDir = resolve(import.meta.dirname, "../lua")
 const gamePath = `${luaDir}/games.lua`
 const gunPath = `${luaDir}/gun.lua`
+const imageDir = resolve(import.meta.dirname, "../../web/public")
+
+const thumbnail_data = readFileSync(`${imageDir}/img/nft/collection/pack.png`)
+const banner_data = readFileSync(`${imageDir}/img/nft/collection/banner.png`)
 
 const genUDL = recipient => {
   return {
@@ -95,7 +99,14 @@ describe("Atomic Notes", function () {
       )
       const { pid: dumdum_pid } = ok(
         await dumdum_collection.create({
-          info: { title: "Dum dum", description: "dum dum" },
+          info: {
+            title: "Dum dum",
+            description: "dum dum",
+            thumbnail_data,
+            thumbnail_type: "image/png",
+            banner_data,
+            banner_type: "image/png",
+          },
         }),
       )
       console.log("dumdums: " + dumdum_pid)
@@ -113,21 +124,30 @@ describe("Atomic Notes", function () {
       guns_collection = await new Collection(opt.collection).init(users[1].jwk)
       const { pid: guns_pid } = ok(
         await guns_collection.create({
-          info: { title: "Guns", description: "guns" },
+          info: {
+            title: "Guns",
+            description: "guns",
+            thumbnail_data,
+            thumbnail_type: "image/png",
+            banner_data,
+            banner_type: "image/png",
+          },
         }),
       )
       console.log("guns: ", guns_pid)
       guns = { pid: guns_pid }
       writeFileSync(gunsPath, JSON.stringify(guns))
     }
+
     // create dumdums
     if (!dumdums.assets) {
       for (const v of range(0, 5)) {
+        const data = readFileSync(`${imageDir}${_users[v].avatar}`)
         const asset = await new Asset(opt.asset).init(users[0].jwk)
         const { pid } = ok(
           await asset.create({
-            data: `dumdum-${v + 1}`,
-            content_type: "text/plain",
+            data,
+            content_type: "image/png",
             info: {
               title: `dumdum-${v + 1}`,
               description: "dumdum",
@@ -162,12 +182,14 @@ describe("Atomic Notes", function () {
 
       let i = 0
       for (const v of _guns) {
+        const data = readFileSync(`${imageDir}${v.image}`)
         const asset = await new Asset({
           ...opt.asset,
           asset_src: gun_src,
         }).init(users[1].jwk)
         const { pid } = ok(
           await asset.create({
+            data,
             fills: {
               Rarity: v.rarity,
               Level: Number(v.level).toString(),
@@ -179,7 +201,7 @@ describe("Atomic Notes", function () {
               Attack: Number(v.attack).toString(),
             },
             data: v.name,
-            content_type: "text/plain",
+            content_type: "image/png",
             info: {
               title: v.name,
               description: v.description,
