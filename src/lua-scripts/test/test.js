@@ -16,6 +16,24 @@ const luaDir = resolve(import.meta.dirname, "../lua")
 const gamePath = `${luaDir}/games.lua`
 const gunPath = `${luaDir}/gun.lua`
 
+const genUDL = recipient => {
+  return {
+    payment: { mode: "single", recipient },
+    access: { mode: "none" },
+    derivations: {
+      mode: "allowed",
+      term: "one-time",
+      fee: "0",
+    },
+    commercial: {
+      mode: "allowed",
+      term: "revenue",
+      fee: "5",
+    },
+    training: { mode: "disallowed" },
+  }
+}
+
 describe("Atomic Notes", function () {
   this.timeout(0)
   console.error = () => {}
@@ -102,7 +120,6 @@ describe("Atomic Notes", function () {
       guns = { pid: guns_pid }
       writeFileSync(gunsPath, JSON.stringify(guns))
     }
-
     // create dumdums
     if (!dumdums.assets) {
       for (const v of range(0, 5)) {
@@ -116,23 +133,7 @@ describe("Atomic Notes", function () {
               description: "dumdum",
             },
             token: { fraction: "100" },
-            udl: {
-              payment: { mode: "single", recipient: users[0].addr },
-              access: { mode: "one-time", fee: "1.3" },
-              derivations: {
-                mode: "allowed",
-                term: "one-time",
-                share: "5.0",
-                fee: "1.0",
-              },
-              commercial: {
-                mode: "allowed",
-                term: "one-time",
-                share: "5.0",
-                fee: "1.0",
-              },
-              training: { mode: "allowed", term: "one-time", fee: "0.1" },
-            },
+            udl: genUDL(users[0].addr),
           }),
         )
         ok(await dumdum_collection.addAsset(pid))
@@ -184,23 +185,7 @@ describe("Atomic Notes", function () {
               description: v.description,
             },
             token: { fraction: "1" },
-            udl: {
-              payment: { mode: "single", recipient: users[0].addr },
-              access: { mode: "one-time", fee: "1.3" },
-              derivations: {
-                mode: "allowed",
-                term: "one-time",
-                share: "5.0",
-                fee: "1.0",
-              },
-              commercial: {
-                mode: "allowed",
-                term: "one-time",
-                share: "5.0",
-                fee: "1.0",
-              },
-              training: { mode: "allowed", term: "one-time", fee: "0.1" },
-            },
+            udl: genUDL(users[0].addr),
           }),
         )
         ok(await guns_collection.addAsset(pid))
