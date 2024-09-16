@@ -5,7 +5,6 @@ import { resolve } from "path"
 const dum = "CoqeBSfYjsYPrVDZUxlpS5n39UAlkrz6jRCNJWpiINA"
 const gun = "XrxQde5ccu_X7dxP9NwmhI8PQkSQs8EWpltkOcPhWQE"
 const game = "89HBqWgMIm0lj8z9-i5BX9g4K4cYo2VvkVFkf-oLIbs"
-const cron = "1iCrFZtYy80X82D_35N9NxE7el07ezQFjR8H0D-Gfj8"
 
 const jwk = JSON.parse(
   readFileSync(resolve(import.meta.dirname, "keyfile.json"), "utf8"),
@@ -305,45 +304,6 @@ const execute = async gid => {
     act: "Execute",
     tags: { ID: gid, Force: "1" },
     checkData: "executed!",
-  })
-  console.log(err)
-}
-
-const deployProxies = async () => {
-  const ao = await new AO().init(jwk)
-  const proxyPath = resolve(`${import.meta.dirname}/profile-cron.lua`)
-  const lua_proxy = readFileSync(proxyPath)
-  const { id: proxy_src } = await ao.ar.post({ data: lua_proxy })
-  console.log(proxy_src)
-  const users = JSON.parse(readFileSync(usersPath, "utf8"))
-
-  for (let v of users) {
-    const prof = await new Profile().init(v.jwk)
-    const my_assets = (await prof.info()).Assets
-    let dum = null
-    for (let v2 of my_assets) {
-      if (v2.Quantity === "100") dum = v2.Id
-    }
-    console.log(prof.id, dum)
-    const { err } = await prof.ao.load({
-      src: proxy_src,
-      pid: prof.id,
-      fills: { Cron: cron, DumDum: dum, Games: game },
-    })
-    console.log(err)
-  }
-}
-
-const deployGameProxy = async () => {
-  const ao = await new AO().init(jwk)
-  const proxyPath = resolve(`${import.meta.dirname}/game-cron.lua`)
-  const lua_proxy = readFileSync(proxyPath)
-  const { id: proxy_src } = await ao.ar.post({ data: lua_proxy })
-  console.log(proxy_src)
-  const { err } = await ao.load({
-    src: proxy_src,
-    pid: game,
-    fills: { Cron: cron },
   })
   console.log(err)
 }
