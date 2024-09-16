@@ -27,7 +27,7 @@ const UserCardCollection = () => {
   const [selectedArmor, setSelectedArmor] = useState(mockArmor[0]) // デフォルトでID1の防具を選択
   useEffect(() => {
     ;(async () => {
-      const dumdum = new Collection({ ...opt.collection, pid: opt.dumdums })
+      const dumdum = new Collection({ ...opt.collection, pid: import.meta.env.VITE_DUMDUMS })
       setAssets((await dumdum.info()).Assets)
     })()
   }, [])
@@ -49,7 +49,7 @@ const UserCardCollection = () => {
 
   useEffect(() => {
     ;(async () => {
-      const guns = new Collection({ ...opt.collection, pid: opt.guns })
+      const guns = new Collection({ ...opt.collection, pid: import.meta.env.VITE_GUNS })
       setGunIDs((await guns.info()).Assets)
     })()
   }, [])
@@ -77,8 +77,9 @@ const UserCardCollection = () => {
         const v = gunInfo[k]
         if (v) {
           _guns.push({
+	    attack: v.Attack,
             name: v.Name,
-            image: `http://localhost:4000/${k}`,
+            image: `${import.meta.env.VITE_GATEWAY}/${k}`,
             level: v.Level,
             rarity: v.Rarity,
             id: k,
@@ -93,7 +94,7 @@ const UserCardCollection = () => {
     ;(async () => {
       const ao = new AO(opt.ao)
       const { err, out, res } = await ao.dry({
-        pid: opt.games,
+        pid: import.meta.env.VITE_GAMES,
         act: "Get-Ranking",
         get: { data: true, json: true },
       })
@@ -263,7 +264,7 @@ const UserCardCollection = () => {
                     pid: ids[0],
                     act: "Run-Action",
                     data: JSON.stringify({
-                      Target: opt.games,
+                      Target: import.meta.env.VITE_GAMES,
                       Action: "Equip",
                       Input: JSON.stringify({
                         "Asset-ID": my_dumdum,

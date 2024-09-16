@@ -26,7 +26,7 @@ const UserRanking = () => {
     ;(async () => {
       const ao = new AO(opt.ao)
       const { err, out, res } = await ao.dry({
-        pid: opt.games,
+        pid: import.meta.env.VITE_GAMES,
         act: "Get-Ranking",
         get: { data: true, json: true },
       })
@@ -60,12 +60,12 @@ const UserRanking = () => {
               level: _gun?.Level ?? 1,
               rarity: _gun?.Rarity ?? "Common",
               attack: gun.attack,
-              image: `http://localhost:4000/${k}`,
+              image: `${import.meta.env.VITE_GATEWAY}/${k}`,
             })
           }
           return {
             name: `DumDum ${v.id.slice(0, 5)}`,
-            avatar: `http://localhost:4000/${v.id}`,
+            avatar: `${import.meta.env.VITE_GATEWAY}/${v.id}`,
             address: v.id,
             score: v.score,
             deck,
