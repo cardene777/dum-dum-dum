@@ -24,7 +24,7 @@ Handlers.add(
     ao.send({
 	Target = msg.From,
 	Action = 'Read-Success',
-	Tags = { ID = getGameID(msg.Timestamp) }
+	Tags = { ID = getGameID(msg.Timestamp), Timestamp = tostring(msg.Timestamp), Origin = origin, Span = tostring(span) }
     })
   end
 )
@@ -181,7 +181,7 @@ Handlers.add(
     assert(games[msg.Tags.ID] ~= nil, "game does not exist!")
     assert(games[msg.Tags.ID].executed == false, "already executed!")
     local id = getGameID(msg.Timestamp)
-    assert(tonumber(msg.Tags.ID) < tonumber(id), "the game has not ended!")
+    assert(msg.Tags.Force == "1" or tonumber(msg.Tags.ID) < tonumber(id), "the game has not ended!")
     assert(games[msg.Tags.ID].numbers == nil, "numbers are already generated!")
     games[msg.Tags.ID].numbers = {}
     local numbers = {}
@@ -189,10 +189,14 @@ Handlers.add(
     for i = 0, 2, 1 do
       table.insert(numbers, math.random(0, 100))
     end
+    local tags = { ID = msg.Tags.ID }
+    if msg.Tags.Force == "1" then
+      tags.Force = "1"
+    end
     ao.send({
 	Target = ao.id,
 	Action = 'Complete-Game',
-	Tags = { ID = msg.Tags.ID },
+	Tags = tags,
 	Data = json.encode(numbers)
     })
     Handlers.utils.reply('executed!')(msg) 
@@ -218,7 +222,7 @@ Handlers.add(
     assert(games[msg.Tags.ID] ~= nil, "game does not exist!")
     assert(games[msg.Tags.ID].executed == false, "already executed!")
     local id = getGameID(msg.Timestamp)
-    assert(tonumber(msg.Tags.ID) < tonumber(id), "the game has not ended!")
+    assert(msg.Tags.Force == "1" or tonumber(msg.Tags.ID) < tonumber(id), "the game has not ended!")
     local numbers = json.decode(msg.Data)
     games[msg.Tags.ID].numbers = numbers
     games[msg.Tags.ID].executed = true

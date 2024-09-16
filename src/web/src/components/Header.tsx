@@ -1,14 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
+import { useState, useEffect } from "react"
 import {
   ConnectButton,
   useActiveAddress,
   useProfileModal,
-} from "arweave-wallet-kit";
+} from "arweave-wallet-kit"
+import { Profile } from "aonote"
+import { opt } from "../lib/ao-utils"
 
 export const Header = () => {
-  const profileModal = useProfileModal();
-
-  const address = useActiveAddress();
+  const profileModal = useProfileModal()
+  const address = useActiveAddress()
+  const [profile, setProfile] = useState(null)
+  useEffect(() => {
+    ;(async () => {
+      if (address) {
+        const prof = new Profile(opt.profile)
+        const ids = await prof.ids({ addr: address })
+        setProfile(!ids[0] ? null : await prof.profile({ id: ids[0] }))
+      }
+    })()
+  }, [address])
   return (
     <header className="bg-[#0f0518] p-4 shadow-lg">
       <div className="px-10 flex justify-between items-center text-white">
@@ -42,7 +54,13 @@ export const Header = () => {
                   onClick={() => profileModal.setOpen(true)}
                   className="px-4 py-2 bg-[#B19CD9] text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 ease-in-out border border-transparent"
                 >
-                  {address.slice(0, 6)}...{address.slice(-4)}
+                  {profile ? (
+                    profile.DisplayName
+                  ) : (
+                    <>
+                      {address.slice(0, 6)}...{address.slice(-4)}
+                    </>
+                  )}
                 </button>
               ) : (
                 <ConnectButton
@@ -58,5 +76,5 @@ export const Header = () => {
         </nav>
       </div>
     </header>
-  );
-};
+  )
+}

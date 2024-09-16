@@ -1,35 +1,97 @@
-import { useState, useEffect } from "react";
-import { Header } from "../components/Header";
-import mockGuns from "../../public/json/gun.json"; // gun.jsonをインポート
-import { IGun } from "../types/type";
-import users from "../../public/json/user.json";
-import { IDeck } from "../types/type";
+import { useState, useEffect } from "react"
+import { Header } from "../components/Header"
+import mockGuns from "../../public/json/gun.json" // gun.jsonをインポート
+import { IGun } from "../types/type"
+import users from "../../public/json/user.json"
+import { IDeck } from "../types/type"
+import { Asset, Collection, AO, Profile } from "aonote"
+import { opt } from "../lib/ao-utils"
+import { mergeLeft, map, addIndex, compose } from "ramda"
+import lf from "localforage"
 
 // ランダムなアイテムを選択する関数
 const getRandomGuns = (guns: IGun[], count: number) => {
-  const shuffled = guns.sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, count);
-};
-
+  const shuffled = guns.sort(() => 0.5 - Math.random())
+  return shuffled.slice(0, count)
+}
 
 const UserRanking = () => {
-  const [decks, setDecks] = useState<IDeck[]>(users as IDeck[]);
-  const [openUser, setOpenUser] = useState<number | null>(null); // 現在開いているユーザーID
+  const [decks, setDecks] = useState<IDeck[]>([] as IDeck[])
+  const [openUser, setOpenUser] = useState<number | null>(null) // 現在開いているユーザーID
+
+  const [ranking, setRanking] = useState([])
+  const [gunInfo, setGunInfo] = useState({})
 
   useEffect(() => {
+    ;(async () => {
+      const ao = new AO(opt.ao)
+      const { err, out, res } = await ao.dry({
+        pid: opt.games,
+        act: "Get-Ranking",
+        get: { data: true, json: true },
+      })
+      if (!err) setRanking(out)
+      let gunIds = []
+      for (const v of ranking) {
+        for (const k in v.guns) gunIds.push(k)
+      }
+      let _guns = (await lf.getItem("guns")) ?? {}
+      for (const k of gunIds) {
+        if (!gunInfo[k] && !_guns[k]) {
+          const gun = new Asset({ ...opt.asset, pid: k })
+          _guns[k] = await gun.info()
+          await lf.setItem("guns", _guns)
+        }
+      }
+      setGunInfo(mergeLeft(_guns, gunInfo))
+    })()
+  }, [])
+
+  useEffect(() => {
+    ;(async () => {
+      if (ranking.length > 0) {
+        const _decks = addIndex(map)((v, i) => {
+          const deck = []
+          for (const k in v.guns) {
+            const gun = v.guns[k]
+            const _gun = gunInfo[k]
+            deck.push({
+              name: _gun?.Name ?? k.slice(0, 5),
+              level: _gun?.Level ?? 1,
+              rarity: _gun?.Rarity ?? "Common",
+              attack: gun.attack,
+              image: `http://localhost:4000/${k}`,
+            })
+          }
+          return {
+            name: `DumDum ${v.id.slice(0, 5)}`,
+            avatar: `http://localhost:4000/${v.id}`,
+            address: v.id,
+            score: v.score,
+            deck,
+            rank: i + 1,
+          }
+        })(ranking)
+        setDecks(_decks)
+      }
+    })()
+  }, [ranking, gunInfo])
+
+  /*
+  useEffect(() => {
     // 各ユーザーにランダムなデッキ（武器）を割り当てる
-    const usersWithRandomDecks: IDeck[] = (users as IDeck[]).map((user) => ({
+    const usersWithRandomDecks: IDeck[] = (users as IDeck[]).map(user => ({
       ...user,
       deck: getRandomGuns(mockGuns, 3), // ランダムに3つの武器を選択
-    }));
+    }))
 
-    setDecks(usersWithRandomDecks);
-  }, []);
-
+    setDecks(usersWithRandomDecks)
+  }, [])
+  */
   const toggleWeaponVisibility = (userId: number) => {
     // 現在開いているユーザーと同じなら閉じる、それ以外なら開く
-    setOpenUser(openUser === userId ? null : userId);
-  };
+    setOpenUser(openUser === userId ? null : userId)
+  }
 
   return (
     <>
@@ -102,7 +164,7 @@ const UserRanking = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default UserRanking;
+export default UserRanking

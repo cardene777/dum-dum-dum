@@ -1,3 +1,4 @@
+import sharp from "sharp"
 import { setup, ok, fail } from "aonote/test/helpers.js"
 import { expect } from "chai"
 import { AR, AO, Profile, Asset, Collection } from "aonote/test/index.js"
@@ -11,6 +12,7 @@ const optPath = `${cacheDir}/opt.json`
 const usersPath = `${cacheDir}/users.json`
 const dumdumPath = `${cacheDir}/dumdum.json`
 const gunsPath = `${cacheDir}/guns.json`
+const webPath = `${cacheDir}/web.json`
 
 const luaDir = resolve(import.meta.dirname, "../lua")
 const gamePath = `${luaDir}/games.lua`
@@ -43,7 +45,11 @@ describe("Atomic Notes", function () {
   console.error = () => {}
   console.warn = () => {}
   let opt, users, dumdums, guns, usermap
-
+  let info = {}
+  after(() => {
+    delete opt.jwk
+    writeFileSync(webPath, JSON.stringify({ ...info, ...opt }, undefined, 2))
+  })
   before(async () => {
     // set up environment
     if (!existsSync(cacheDir)) mkdirSync(cacheDir)
@@ -52,7 +58,7 @@ describe("Atomic Notes", function () {
       opt = JSON.parse(readFileSync(optPath, "utf8"))
     } else {
       ;({ opt } = await setup({}))
-      writeFileSync(optPath, JSON.stringify(opt))
+      writeFileSync(optPath, JSON.stringify(opt, undefined, 2))
     }
 
     // generate user wallets and create AO profiles
@@ -141,36 +147,38 @@ describe("Atomic Notes", function () {
 
     // create dumdums
     if (!dumdums.assets) {
-      for (const v of range(0, 5)) {
+      for (const v of range(2, 7)) {
         const data = readFileSync(`${imageDir}${_users[v].avatar}`)
+        const img = await sharp(data).resize(400, 400).toBuffer()
         const asset = await new Asset(opt.asset).init(users[0].jwk)
         const { pid } = ok(
           await asset.create({
-            data,
+            data: img,
             content_type: "image/png",
             info: {
-              title: `dumdum-${v + 1}`,
+              title: `dumdum-${v - 1}`,
               description: "dumdum",
             },
             token: { fraction: "100" },
             udl: genUDL(users[0].addr),
           }),
         )
+        console.log(`dumdum-${v - 1}: ${pid}`)
         ok(await dumdum_collection.addAsset(pid))
         ok(
           await asset.transfer({
-            recipient: users[v + 2].profileId,
+            recipient: users[v].profileId,
             quantity: "100",
             profile: true,
           }),
         )
-        console.log(pid)
         dumdums.assets ??= []
-        dumdums.assets.push({ pid, profile: users[v + 2].profileId })
+        dumdums.assets.push({ pid, profile: users[v].profileId })
       }
       writeFileSync(dumdumPath, JSON.stringify(dumdums))
     }
-
+    console.log("dumdums:", dumdums.pid)
+    info.dumdums = dumdums.pid
     // create guns
     if (!guns.assets) {
       const _guns = JSON.parse(
@@ -183,13 +191,14 @@ describe("Atomic Notes", function () {
       let i = 0
       for (const v of _guns) {
         const data = readFileSync(`${imageDir}${v.image}`)
+        const img = await sharp(data).resize(400, 400).toBuffer()
         const asset = await new Asset({
           ...opt.asset,
           asset_src: gun_src,
         }).init(users[1].jwk)
         const { pid } = ok(
           await asset.create({
-            data,
+            data: img,
             fills: {
               Rarity: v.rarity,
               Level: Number(v.level).toString(),
@@ -200,7 +209,6 @@ describe("Atomic Notes", function () {
               Level: Number(v.level).toString(),
               Attack: Number(v.attack).toString(),
             },
-            data: v.name,
             content_type: "image/png",
             info: {
               title: v.name,
@@ -210,6 +218,7 @@ describe("Atomic Notes", function () {
             udl: genUDL(users[0].addr),
           }),
         )
+        console.log(`${v.name}: ${pid}`)
         ok(await guns_collection.addAsset(pid))
         const recipient = users[(i % (users.length - 2)) + 2].profileId
         ok(
@@ -225,6 +234,8 @@ describe("Atomic Notes", function () {
       }
       writeFileSync(gunsPath, JSON.stringify(guns))
     }
+    console.log("guns:", guns.pid)
+    info.guns = guns.pid
     usermap = indexBy(prop("profileId"), users)
   })
 
@@ -237,13 +248,15 @@ describe("Atomic Notes", function () {
       src: game_src,
       fills: { DUMDUM: dumdums.pid, GUN: guns.pid },
     }))
+    info.games = pid
+    console.log(`game process: ${pid}`)
     ok(
       await ao.msg({
         pid,
         act: "Set-Origin",
         tags: {
           Origin: Number(Date.now()).toString(),
-          Span: Number(15000).toString(),
+          Span: Number(1000 * 20).toString(),
         },
         checkData: "origin set!",
       }),
@@ -315,7 +328,7 @@ describe("Atomic Notes", function () {
       await ao.msg({
         pid,
         act: "Execute",
-        tags: { ID: gid },
+        tags: { ID: gid, Force: "1" },
         checkData: "executed!",
       }),
     )
@@ -328,6 +341,7 @@ describe("Atomic Notes", function () {
         get: { name: "Game", json: true },
       }),
     ).out
+    console.log(pid, gid)
     console.log(game)
     expect(game.executed).to.eql(true)
   })
@@ -337,11 +351,47 @@ describe("Atomic Notes", function () {
       await ao.dry({
         pid,
         act: "Get-Ranking",
-        tags: { ID: gid },
         get: { data: true, json: true },
       }),
     ).out
     console.log(rank)
     expect(rank[0].score).to.eql(9)
+  })
+
+  it("should start another game", async () => {
+    const { out } = await ao.msg({ pid, act: "GameID", get: "ID" })
+    expect(out).to.eql("1")
+    await wait(5000)
+    const { out: newid } = await ao.msg({ pid, act: "GameID", get: "ID" })
+    expect(newid).to.eql("2")
+    for (const v of dumdums.assets.slice(0, 1)) {
+      const user = usermap[v.profile]
+      const ao2 = await new AO(opt.ao).init(user.jwk)
+      console.log("Register:", v.pid)
+      ok(
+        await ao2.msg({
+          pid: user.profileId,
+          act: "Run-Action",
+          data: JSON.stringify({
+            Target: pid,
+            Action: "Register",
+            Input: JSON.stringify({ "Asset-ID": v.pid }),
+          }),
+          get: "Action",
+        }),
+      )
+    }
+    await wait(3000)
+    expect(
+      ok(
+        await ao.dry({
+          pid,
+          act: "Get-Game",
+          tags: { ID: newid },
+          get: { name: "Game", json: true },
+        }),
+      ).out.executed,
+    ).to.eql(false)
+    await wait(5000)
   })
 })
