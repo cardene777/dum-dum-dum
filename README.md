@@ -4,7 +4,12 @@
 
 - [https://arweave.net/7tBTjaEVzqjlgje6DGigVPaF404LD1TXz64K0giESlo](https://arweave.net/7tBTjaEVzqjlgje6DGigVPaF404LD1TXz64K0giESlo)
 
+## 📜 Docs
 
+- [slide](https://github.com/cardene777/dum-dum-dum/blob/main/docs/slide.pdf)
+- [doc](https://github.com/cardene777/dum-dum-dum/blob/main/docs/doc.md)
+
+## 📄 Page
 
 | Home | Buttle |
 | ---- | ---- |
