@@ -349,6 +349,59 @@ declare module "aonote" {
     removeEditor(editor: string): Promise<any>;
   }
 
+  export class Asset {
+    __type__: string;
+    asset_src: string;
+    pid: string;
+    profile: object;
+    ao: object;
+    ar: object;
+
+    constructor({
+      asset_src,
+      pid,
+      profile,
+      ao,
+      ar,
+    }?: {
+      asset_src?: string;
+      pid?: string;
+      profile?: object;
+      ao?: object;
+      ar?: object;
+    });
+
+    init(jwk: any): Promise<this>;
+    create(options: {
+      jwk: any;
+      src?: string;
+      data: any;
+      fills?: any;
+      tags?: object;
+      content_type: string;
+      info: { title: string; description: string };
+      token: { fraction?: string };
+      udl: {
+        payment?: string;
+        access?: string;
+        derivations?: string;
+        commercial?: string;
+        training?: string;
+      };
+      cb?: Function;
+    }): Promise<any>;
+    info(): Promise<any>;
+    add(options: { id: string }): Promise<any>;
+    mint(options: { quantity: string }): Promise<any>;
+    transfer(options: {
+      recipient: string;
+      quantity: string;
+      profile?: boolean;
+    }): Promise<any>;
+    balance(options: { target: string }): Promise<any>;
+    balances(): Promise<any>;
+  }
+
   export interface ArweaveWallet {
     walletName: "ArConnect";
     test: boolean;
@@ -358,4 +411,6 @@ declare module "aonote" {
     getActivePublicKey: () => Promise<string>;
     sign: (tx: any) => Promise<any>;
   }
+
+
 }

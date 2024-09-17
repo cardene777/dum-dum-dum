@@ -42,7 +42,7 @@ Handlers.add('Info', Handlers.utils.hasMatchingTag('Action', 'Info'), function(m
 		Target = msg.From,
 		Action = 'Read-Success',
 		Data = json.encode({
-		        Name = Name,
+			Name = Name,
 			Ticker = Ticker,
 			Denomination = Denomination,
 			Balances = Balances,

@@ -23,10 +23,18 @@ export interface IGun extends ICard {
   level: number;
 }
 
+export interface IGunInfo {
+  [key: string]: any;
+}
+
 export interface IDeck {
   address: string;
   name?: string;
   rank?: number;
+  level?: number;
+  rarity?: string;
+  attack?: number;
+  image?: string;
   score?: number;
   avatar?: string;
   deck?: IGun[];

@@ -1,67 +1,67 @@
-import { useState, useEffect } from "react"
-import { Header } from "../components/Header"
-import mockGuns from "../../public/json/gun.json" // gun.jsonをインポート
-import { IGun } from "../types/type"
-import users from "../../public/json/user.json"
-import { IDeck } from "../types/type"
-import { Asset, Collection, AO, Profile } from "aonote"
-import { opt } from "../lib/ao-utils"
-import { mergeLeft, map, addIndex, compose } from "ramda"
-import lf from "localforage"
+import { useState, useEffect } from "react";
+import { Header } from "../components/Header";
+import mockGuns from "../../public/json/gun.json"; // gun.jsonをインポート
+import { IGun } from "../types/type";
+import users from "../../public/json/user.json";
+import { IDeck } from "../types/type";
+import { Asset, Collection, AO, Profile } from "aonote";
+import { opt } from "../lib/ao-utils";
+import { mergeLeft, map, addIndex, compose } from "ramda";
+import lf from "localforage";
 
 // ランダムなアイテムを選択する関数
 const getRandomGuns = (guns: IGun[], count: number) => {
-  const shuffled = guns.sort(() => 0.5 - Math.random())
-  return shuffled.slice(0, count)
-}
+  const shuffled = guns.sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
+};
 
 const UserRanking = () => {
-  const [decks, setDecks] = useState<IDeck[]>([] as IDeck[])
-  const [openUser, setOpenUser] = useState<number | null>(null) // 現在開いているユーザーID
+  const [decks, setDecks] = useState<IDeck[]>([] as IDeck[]);
+  const [openUser, setOpenUser] = useState<number | null>(null); // 現在開いているユーザーID
 
-  const [ranking, setRanking] = useState([])
-  const [gunInfo, setGunInfo] = useState({})
+  const [ranking, setRanking] = useState([]);
+  const [gunInfo, setGunInfo] = useState({});
 
   useEffect(() => {
-    ;(async () => {
-      const ao = new AO(opt.ao)
+    (async () => {
+      const ao = new AO(opt.ao);
       const { err, out, res } = await ao.dry({
         pid: import.meta.env.VITE_GAMES,
         act: "Get-Ranking",
         get: { data: true, json: true },
-      })
-      if (!err) setRanking(out)
-      let gunIds = []
+      });
+      if (!err) setRanking(out);
+      let gunIds = [];
       for (const v of ranking) {
-        for (const k in v.guns) gunIds.push(k)
+        for (const k in v.guns) gunIds.push(k);
       }
-      let _guns = (await lf.getItem("guns")) ?? {}
+      let _guns = (await lf.getItem("guns")) ?? {};
       for (const k of gunIds) {
         if (!gunInfo[k] && !_guns[k]) {
-          const gun = new Asset({ ...opt.asset, pid: k })
-          _guns[k] = await gun.info()
-          await lf.setItem("guns", _guns)
+          const gun = new Asset({ ...opt.asset, pid: k });
+          _guns[k] = await gun.info();
+          await lf.setItem("guns", _guns);
         }
       }
-      setGunInfo(mergeLeft(_guns, gunInfo))
-    })()
-  }, [])
+      setGunInfo(mergeLeft(_guns, gunInfo));
+    })();
+  }, []);
 
   useEffect(() => {
-    ;(async () => {
+    (async () => {
       if (ranking.length > 0) {
         const _decks = addIndex(map)((v, i) => {
-          const deck = []
+          const deck = [];
           for (const k in v.guns) {
-            const gun = v.guns[k]
-            const _gun = gunInfo[k]
+            const gun = v.guns[k];
+            const _gun = gunInfo[k];
             deck.push({
               name: _gun?.Name ?? k.slice(0, 5),
               level: _gun?.Level ?? 1,
               rarity: _gun?.Rarity ?? "Common",
               attack: gun.attack,
               image: `${import.meta.env.VITE_GATEWAY}/${k}`,
-            })
+            });
           }
           return {
             name: `DumDum ${v.id.slice(0, 5)}`,
@@ -70,12 +70,12 @@ const UserRanking = () => {
             score: v.score,
             deck,
             rank: i + 1,
-          }
-        })(ranking)
-        setDecks(_decks)
+          };
+        })(ranking);
+        setDecks(_decks);
       }
-    })()
-  }, [ranking, gunInfo])
+    })();
+  }, [ranking, gunInfo]);
 
   /*
   useEffect(() => {
@@ -90,8 +90,8 @@ const UserRanking = () => {
   */
   const toggleWeaponVisibility = (userId: number) => {
     // 現在開いているユーザーと同じなら閉じる、それ以外なら開く
-    setOpenUser(openUser === userId ? null : userId)
-  }
+    setOpenUser(openUser === userId ? null : userId);
+  };
 
   return (
     <>
@@ -121,7 +121,7 @@ const UserRanking = () => {
                   <h2 className="text-2xl font-semibold text-[#7fffd4]">
                     {user.name}
                   </h2>
-                  <p className="text-lg text-[#b19cd9]">スコア: {user.score}</p>
+                  <p className="text-lg text-[#b19cd9]">Score: {user.score}</p>
                 </div>
                 <div className="flex items-center">
                   {/* Weaponセクョンをクリックで開閉 */}
@@ -150,10 +150,10 @@ const UserRanking = () => {
                         レア度: {gun.rarity}
                       </p>
                       <p className="text-xs text-[#b19cd9]">
-                        レベル: {gun.level}
+                        Level: {gun.level}
                       </p>
                       <p className="text-xs text-[#b19cd9]">
-                        攻撃力: {gun.attack}
+                        Attack: {gun.attack}
                       </p>
                     </div>
                   ))}
@@ -164,7 +164,7 @@ const UserRanking = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default UserRanking
+export default UserRanking;
