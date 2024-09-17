@@ -2,7 +2,7 @@
 
 ## 🖼️ Site
 
-- [https://53ifhdnbcxhkrzmcg65ay2fakt3ily2obmhvjv6pvyfneceejjna.arweave.net/7tBTjaEVzqjlgje6DGigVPaF404LD1TXz64K0giESlo/](https://53ifhdnbcxhkrzmcg65ay2fakt3ily2obmhvjv6pvyfneceejjna.arweave.net/7tBTjaEVzqjlgje6DGigVPaF404LD1TXz64K0giESlo/)
+- [https://arweave.net/7tBTjaEVzqjlgje6DGigVPaF404LD1TXz64K0giESlo](https://arweave.net/7tBTjaEVzqjlgje6DGigVPaF404LD1TXz64K0giESlo)
 
 | Home | Buttle |
 | ---- | ---- |
