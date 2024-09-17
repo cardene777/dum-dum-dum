@@ -1,5 +1,7 @@
 # Dum Dum Dum
 
+## 🖼️ Site
+
 | Home | Buttle |
 | ---- | ---- |
 | ![Screenshot 2024-09-17 at 18 45 45](https://github.com/user-attachments/assets/be7af77c-87ce-4440-bb7d-559de020d8b8) |
@@ -34,6 +36,17 @@
 - [Test Dum Dum Dum](https://bazar.arweave.dev/#/collection/CoqeBSfYjsYPrVDZUxlpS5n39UAlkrz6jRCNJWpiINA/assets/)
 - [Test Gun](https://bazar.arweave.dev/#/collection/XrxQde5ccu_X7dxP9NwmhI8PQkSQs8EWpltkOcPhWQE)
 - [Game AO Process](https://www.ao.link/#/entity/89HBqWgMIm0lj8z9-i5BX9g4K4cYo2VvkVFkf-oLIbs)
+
+## 🛠️ Tech
+
+- Vite
+- React
+- Typescript
+- AO
+- Arweave
+- aonote
+- Tailwindcss
+- Arkb
 
 ## Contract
 
