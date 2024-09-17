@@ -48,9 +48,9 @@ const BattleRegistrationList: React.FC = () => {
   const getGame = async ({ id }) => {
     const ao = new AO(opt.ao)
     const { out: game } = await ao.dry({
-      pid: opt.games,
+      pid: import.meta.env.VITE_GAMES,
       act: "Get-Game",
-      tags: { ID: id },
+      tags: { ID: Number(id).toString() },
       get: { name: "Game", json: true },
     })
     setGame(game)
@@ -61,7 +61,7 @@ const BattleRegistrationList: React.FC = () => {
             map(([key2, val2]) => {
               return {
                 id: key2,
-                image: `http://localhost:4000/${key2}`,
+                image: `${import.meta.env.VITE_GATEWAY}/${key2}`,
                 rerity: "Common",
                 attack: val2.attack,
                 level: 1,
@@ -72,7 +72,7 @@ const BattleRegistrationList: React.FC = () => {
           return {
             address: key,
             owner: val.owner,
-            avatar: `http://localhost:4000/${key}`,
+            avatar: `${import.meta.env.VITE_GATEWAY}/${key}`,
             name: key.slice(0, 5),
             score: 300,
             rank: 1,
@@ -143,7 +143,7 @@ const BattleRegistrationList: React.FC = () => {
   const getGameID = async () => {
     const ao = new AO(opt.ao)
     let { out } = await ao.dry({
-      pid: opt.games,
+      pid: import.meta.env.VITE_GAMES,
       act: "GameID",
       get: {
         obj: {
@@ -172,7 +172,7 @@ const BattleRegistrationList: React.FC = () => {
     ;(async () => {
       const ao = new AO(opt.ao)
       const { err, out, res } = await ao.dry({
-        pid: opt.games,
+        pid: import.meta.env.VITE_GAMES,
         act: "Get-Ranking",
         get: { data: true, json: true },
       })
@@ -182,14 +182,20 @@ const BattleRegistrationList: React.FC = () => {
 
   useEffect(() => {
     ;(async () => {
-      const dumdum = new Collection({ ...opt.collection, pid: opt.dumdums })
+      const dumdum = new Collection({
+        ...opt.collection,
+        pid: import.meta.env.VITE_DUMDUMS,
+      })
       setAssets((await dumdum.info()).Assets)
     })()
   }, [])
 
   useEffect(() => {
     ;(async () => {
-      const guns = new Collection({ ...opt.collection, pid: opt.guns })
+      const guns = new Collection({
+        ...opt.collection,
+        pid: import.meta.env.VITE_GUNS,
+      })
       setGuns((await guns.info()).Assets)
     })()
   }, [])
@@ -260,7 +266,7 @@ const BattleRegistrationList: React.FC = () => {
         pid: ids[0],
         act: "Run-Action",
         data: JSON.stringify({
-          Target: opt.games,
+          Target: import.meta.env.VITE_GAMES,
           Action: "Register",
           Input: JSON.stringify({ "Asset-ID": my_dumdum }),
         }),
@@ -279,54 +285,54 @@ const BattleRegistrationList: React.FC = () => {
     }
   }
   /*
-  const _handleUserRegister = async () => {
+    const _handleUserRegister = async () => {
     if (!connected) return
 
     try {
-      const assets = await getHolderAssetData(address as string)
-      const matchedGuns = assets
-        .map((asset: { title: string; id: any }) => {
-          const mockGun = mockGuns.find(gun => gun.name === asset.title)
-          return mockGun ? { ...mockGun, id: asset.id } : null
-        })
-        .filter((gun: any) => gun !== null) // 保有している武器を取得
+    const assets = await getHolderAssetData(address as string)
+    const matchedGuns = assets
+    .map((asset: { title: string; id: any }) => {
+    const mockGun = mockGuns.find(gun => gun.name === asset.title)
+    return mockGun ? { ...mockGun, id: asset.id } : null
+    })
+    .filter((gun: any) => gun !== null) // 保有している武器を取得
 
-      // デフォルト武器のデータ
-      const defaultWeapon = {
-        id: 86,
-        name: "Default Handgun",
-        description: "Default Handgun is a basic weapon that deals 10 damage.",
-        rarity: "Common",
-        level: 1,
-        attack: 10,
-        image: "/img/gun/default-handgun.png",
-      }
-
-      // 保有している武器が3枚未満の場合はデフォルト武器を追加
-      const finalDeck = [...matchedGuns]
-      while (finalDeck.length < 3) {
-        finalDeck.push({ ...defaultWeapon, id: 86 }) // デフォルト武器を追加
-      }
-
-      // ランダムに3枚選択（デフォルト武器も含める）
-      const selectedGuns = getRandomGuns([...finalDeck, defaultWeapon], 3)
-
-      if (address) {
-        const user: IDeck = {
-          deck: selectedGuns,
-          address: address,
-          name: "New User", // 例: 新規ユーザーの名前
-          avatar: "/default-avatar.png", // 例: デフォルトのアバター画像
-        }
-        setDecks([...decks, user])
-        alert("ユーザー登録が完了しました！")
-      } else {
-        alert("ウォレットアドレスが見つかりません。")
-      }
-    } catch (error) {
-      console.error("Failed to fetch assets or register user:", error)
+    // デフォルト武器のデータ
+    const defaultWeapon = {
+    id: 86,
+    name: "Default Handgun",
+    description: "Default Handgun is a basic weapon that deals 10 damage.",
+    rarity: "Common",
+    level: 1,
+    attack: 10,
+    image: "/img/gun/default-handgun.png",
     }
-  }
+
+    // 保有している武器が3枚未満の場合はデフォルト武器を追加
+    const finalDeck = [...matchedGuns]
+    while (finalDeck.length < 3) {
+    finalDeck.push({ ...defaultWeapon, id: 86 }) // デフォルト武器を追加
+    }
+
+    // ランダムに3枚選択（デフォルト武器も含める）
+    const selectedGuns = getRandomGuns([...finalDeck, defaultWeapon], 3)
+
+    if (address) {
+    const user: IDeck = {
+    deck: selectedGuns,
+    address: address,
+    name: "New User", // 例: 新規ユーザーの名前
+    avatar: "/default-avatar.png", // 例: デフォルトのアバター画像
+    }
+    setDecks([...decks, user])
+    alert("ユーザー登録が完了しました！")
+    } else {
+    alert("ウォレットアドレスが見つかりません。")
+    }
+    } catch (error) {
+    console.error("Failed to fetch assets or register user:", error)
+    }
+    }
   */
   return (
     <>
