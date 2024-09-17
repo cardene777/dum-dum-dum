@@ -15,7 +15,7 @@ const packs: IPack[] = [
     name: "Part 1",
     price: 0.001,
     description: "Part 1",
-    image: "/img/nft/collection/pack.png",
+    image: "./img/nft/collection/pack.png",
   },
   // {
   //   id: 2,

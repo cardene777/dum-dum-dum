@@ -4,7 +4,7 @@
     "name": "Alice",
     "rank": 1,
     "score": 1500,
-    "avatar": "/img/dumdum.png",
+    "avatar": "./img/dumdum.png",
     "deck": [
       {
         "id": 86,
@@ -13,7 +13,7 @@
         "rarity": "Common",
         "level": 1,
         "attack": 10,
-        "image": "/img/gun/default-handgun.png"
+        "image": "./img/gun/default-handgun.png"
       },
       {
         "id": 86,
@@ -22,7 +22,7 @@
         "rarity": "Common",
         "level": 1,
         "attack": 10,
-        "image": "/img/gun/default-handgun.png"
+        "image": "./img/gun/default-handgun.png"
       },
       {
         "id": 86,
@@ -31,7 +31,7 @@
         "rarity": "Common",
         "level": 1,
         "attack": 10,
-        "image": "/img/gun/default-handgun.png"
+        "image": "./img/gun/default-handgun.png"
       }
     ]
   },
@@ -40,7 +40,7 @@
     "name": "Bob",
     "rank": 2,
     "score": 1450,
-    "avatar": "/img/1087.png",
+    "avatar": "./img/1087.png",
     "deck": [
       {
         "id": 86,
@@ -49,7 +49,7 @@
         "rarity": "Common",
         "level": 1,
         "attack": 10,
-        "image": "/img/gun/default-handgun.png"
+        "image": "./img/gun/default-handgun.png"
       },
       {
         "id": 86,
@@ -58,7 +58,7 @@
         "rarity": "Common",
         "level": 1,
         "attack": 10,
-        "image": "/img/gun/default-handgun.png"
+        "image": "./img/gun/default-handgun.png"
       },
       {
         "id": 86,
@@ -67,7 +67,7 @@
         "rarity": "Common",
         "level": 1,
         "attack": 10,
-        "image": "/img/gun/default-handgun.png"
+        "image": "./img/gun/default-handgun.png"
       }
     ]
   },
@@ -76,7 +76,7 @@
     "name": "Charlie",
     "rank": 3,
     "score": 1400,
-    "avatar": "/img/1230.png",
+    "avatar": "./img/1230.png",
     "deck": [
       {
         "id": 86,
@@ -85,7 +85,7 @@
         "rarity": "Common",
         "level": 1,
         "attack": 10,
-        "image": "/img/gun/default-handgun.png"
+        "image": "./img/gun/default-handgun.png"
       },
       {
         "id": 86,
@@ -94,7 +94,7 @@
         "rarity": "Common",
         "level": 1,
         "attack": 10,
-        "image": "/img/gun/default-handgun.png"
+        "image": "./img/gun/default-handgun.png"
       },
       {
         "id": 86,
@@ -103,7 +103,7 @@
         "rarity": "Common",
         "level": 1,
         "attack": 10,
-        "image": "/img/gun/default-handgun.png"
+        "image": "./img/gun/default-handgun.png"
       }
     ]
   },
@@ -112,7 +112,7 @@
     "name": "Diana",
     "rank": 4,
     "score": 1350,
-    "avatar": "/img/1728.png",
+    "avatar": "./img/1728.png",
     "deck": [
       {
         "id": 86,
@@ -121,7 +121,7 @@
         "rarity": "Common",
         "level": 1,
         "attack": 10,
-        "image": "/img/gun/default-handgun.png"
+        "image": "./img/gun/default-handgun.png"
       },
       {
         "id": 86,
@@ -130,7 +130,7 @@
         "rarity": "Common",
         "level": 1,
         "attack": 10,
-        "image": "/img/gun/default-handgun.png"
+        "image": "./img/gun/default-handgun.png"
       },
       {
         "id": 86,
@@ -139,7 +139,7 @@
         "rarity": "Common",
         "level": 1,
         "attack": 10,
-        "image": "/img/gun/default-handgun.png"
+        "image": "./img/gun/default-handgun.png"
       }
     ]
   },
@@ -148,7 +148,7 @@
     "name": "Ethan",
     "rank": 5,
     "score": 1300,
-    "avatar": "/img/1857.png",
+    "avatar": "./img/1857.png",
     "deck": [
       {
         "id": 86,
@@ -157,7 +157,7 @@
         "rarity": "Common",
         "level": 1,
         "attack": 10,
-        "image": "/img/gun/default-handgun.png"
+        "image": "./img/gun/default-handgun.png"
       },
       {
         "id": 86,
@@ -166,7 +166,7 @@
         "rarity": "Common",
         "level": 1,
         "attack": 10,
-        "image": "/img/gun/default-handgun.png"
+        "image": "./img/gun/default-handgun.png"
       },
       {
         "id": 86,
@@ -175,7 +175,7 @@
         "rarity": "Common",
         "level": 1,
         "attack": 10,
-        "image": "/img/gun/default-handgun.png"
+        "image": "./img/gun/default-handgun.png"
       }
     ]
   }

@@ -22,7 +22,7 @@ export const Header = () => {
         setProfile(!ids[0] ? null : await prof.profile({ id: ids[0] }))
       }
     };
-    
+
     getProfile();
   }, [address]);
 
@@ -30,7 +30,7 @@ export const Header = () => {
     <header className="bg-[#0f0518] p-4 shadow-lg">
       <div className="px-10 flex justify-between items-center text-white">
         <div className="flex items-center justify-center space-x-2">
-          <img src="/img/logo.png" alt="Dum Dum Dum" className="w-1" />
+          <img src="./img/logo.png" alt="Dum Dum Dum" className="w-12" />
           <Link to="/" className="text-3xl font-bold text-[#b19cd9]">
             Dum Dum Dum
           </Link>

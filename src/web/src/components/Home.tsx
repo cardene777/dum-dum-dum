@@ -37,7 +37,7 @@ export const Home = () => {
                   to="/battle-user"
                   className="shadow-lg transition-all transform hover:scale-105 animate-pulse relative w-60 h-60"
                 >
-                  <img src="/img/dumdum.png" alt="DumDum Card Battle" />
+                  <img src="./img/dumdum.png" alt="DumDum Card Battle" />
                   <span className="font-semibold absolute top-3 inset-0 text-center text-white">
                     Join the Battle
                   </span>

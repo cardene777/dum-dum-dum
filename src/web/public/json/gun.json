@@ -6,7 +6,7 @@
     "rarity": "Legendary",
     "level": 5,
     "attack": 90,
-    "image": "/img/gun/ak-47.png"
+    "image": "./img/gun/ak-47.png"
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "rarity": "Epic",
     "level": 4,
     "attack": 80,
-    "image": "/img/gun/m4a1.png"
+    "image": "./img/gun/m4a1.png"
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "rarity": "Epic",
     "level": 4,
     "attack": 60,
-    "image": "/img/gun/M16A2.png"
+    "image": "./img/gun/M16A2.png"
   },
   {
     "id": 4,
@@ -33,7 +33,7 @@
     "rarity": "Legendary",
     "level": 5,
     "attack": 95,
-    "image": "/img/gun/desert_eagle.png"
+    "image": "./img/gun/desert_eagle.png"
   },
   {
     "id": 5,
@@ -42,7 +42,7 @@
     "rarity": "Rare",
     "level": 3,
     "attack": 55,
-    "image": "/img/gun/ump-45.png"
+    "image": "./img/gun/ump-45.png"
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "rarity": "Legendary",
     "level": 5,
     "attack": 100,
-    "image": "/img/gun/awp.png"
+    "image": "./img/gun/awp.png"
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "rarity": "Epic",
     "level": 4,
     "attack": 70,
-    "image": "/img/gun/mp5.png"
+    "image": "./img/gun/mp5.png"
   },
   {
     "id": 8,
@@ -69,7 +69,7 @@
     "rarity": "Common",
     "level": 2,
     "attack": 40,
-    "image": "/img/gun/glock-18.png"
+    "image": "./img/gun/glock-18.png"
   },
   {
     "id": 9,
@@ -78,7 +78,7 @@
     "rarity": "Rare",
     "level": 3,
     "attack": 65,
-    "image": "/img/gun/famas.png"
+    "image": "./img/gun/famas.png"
   },
   {
     "id": 10,
@@ -87,7 +87,7 @@
     "rarity": "Legendary",
     "level": 5,
     "attack": 85,
-    "image": "/img/gun/scar-h.png"
+    "image": "./img/gun/scar-h.png"
   },
   {
     "id": 11,
@@ -96,7 +96,7 @@
     "rarity": "Epic",
     "level": 4,
     "attack": 75,
-    "image": "/img/gun/p90.png"
+    "image": "./img/gun/p90.png"
   },
   {
     "id": 12,
@@ -105,7 +105,7 @@
     "rarity": "Common",
     "level": 2,
     "attack": 45,
-    "image": "/img/gun/mac-10.png"
+    "image": "./img/gun/mac-10.png"
   },
   {
     "id": 13,
@@ -114,7 +114,7 @@
     "rarity": "Legendary",
     "level": 5,
     "attack": 88,
-    "image": "/img/gun/m249.png"
+    "image": "./img/gun/m249.png"
   },
   {
     "id": 14,
@@ -123,7 +123,7 @@
     "rarity": "Legendary",
     "level": 5,
     "attack": 100,
-    "image": "/img/gun/rpg-7.png"
+    "image": "./img/gun/rpg-7.png"
   },
   {
     "id": 15,
@@ -132,7 +132,7 @@
     "rarity": "Rare",
     "level": 3,
     "attack": 68,
-    "image": "/img/gun/m14.png"
+    "image": "./img/gun/m14.png"
   },
   {
     "id": 16,
@@ -141,7 +141,7 @@
     "rarity": "Common",
     "level": 2,
     "attack": 50,
-    "image": "/img/gun/uzi.png"
+    "image": "./img/gun/uzi.png"
   },
   {
     "id": 17,
@@ -150,6 +150,6 @@
     "rarity": "Epic",
     "level": 4,
     "attack": 72,
-    "image": "/img/gun/fn-p90.png"
+    "image": "./img/gun/fn-p90.png"
   }
 ]

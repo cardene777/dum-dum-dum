@@ -2,11 +2,13 @@
 
 ## 🖼️ Site
 
+- [https://53ifhdnbcxhkrzmcg65ay2fakt3ily2obmhvjv6pvyfneceejjna.arweave.net/7tBTjaEVzqjlgje6DGigVPaF404LD1TXz64K0giESlo/](https://53ifhdnbcxhkrzmcg65ay2fakt3ily2obmhvjv6pvyfneceejjna.arweave.net/7tBTjaEVzqjlgje6DGigVPaF404LD1TXz64K0giESlo/)
+
 | Home | Buttle |
 | ---- | ---- |
 | ![Screenshot 2024-09-17 at 18 45 45](https://github.com/user-attachments/assets/be7af77c-87ce-4440-bb7d-559de020d8b8) |
 
-| MyCard | Collection | 
+| MyCard | Collection |
 | ---- | ---- |
 | ![Screenshot 2024-09-17 at 18 47 02](https://github.com/user-attachments/assets/4dfcccb4-37eb-4791-9232-1b02fecd90aa) | ![Screenshot 2024-09-17 at 18 49 14](https://github.com/user-attachments/assets/2c8bd7f5-e6de-4f19-915e-5e887331c069) |
 
