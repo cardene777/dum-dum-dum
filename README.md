@@ -8,7 +8,7 @@
 
 | Home | Buttle |
 | ---- | ---- |
-| ![Screenshot 2024-09-17 at 18 45 45](https://github.com/user-attachments/assets/be7af77c-87ce-4440-bb7d-559de020d8b8) |
+| ![Screenshot 2024-09-17 at 18 45 45](https://github.com/user-attachments/assets/be7af77c-87ce-4440-bb7d-559de020d8b8) | ![Screenshot 2024-09-17 at 19 14 59](https://github.com/user-attachments/assets/f37e934a-2bb9-4360-9dbc-74f679af517b) |
 
 | MyCard | Collection |
 | ---- | ---- |
