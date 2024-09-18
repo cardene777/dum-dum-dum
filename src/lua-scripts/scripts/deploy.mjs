@@ -58,6 +58,15 @@ const dumNames = [
   "Nightmare Trunks",
   "Ghoulphant",
   "Eeriephant",
+  "Trunkster",
+  "Elephantasia",
+  "Tusko", // missing
+  "Stompy",
+  "Bigfoot",
+  "Snouty",
+  "Ivory",
+  "Jumbo",
+  "Trompito",
 ]
 const createAssetsDum = async () => {
   const dumdum_collection = await new Collection({
@@ -95,6 +104,14 @@ const gunNames = [
   "Inferno Shooter",
   "Sonic Boom",
   "Magnum Nova",
+  "BlazeStrike",
+  "Thunderclap",
+  "ShadowPiercer",
+  "IronFang",
+  "Stormbreaker",
+  "VenomShot", //no
+  "BoltRider", //no
+  "InfernoBlaster", //no
 ]
 const createCollectionGun = async () => {
   const thumbnail_data = readFileSync(
@@ -347,3 +364,49 @@ const deployGameProxy = async () => {
   })
   console.log(err)
 }
+
+const removeAssetsGun = async () => {
+  const guns_collection = await new Collection({ pid: gun }).init(jwk)
+  const rids = [
+    "Bydeh33EtPTpLG3rQon0Z-m1dCXrT9yVk4So340_2cc",
+    "FS9JvXg-cosxFT34AlhiOOxps7poCq3_ofht7wGM0ro",
+    "erPyt-fh9az2VASfuaI6_l3N_0m5Yi1Zuj5irM8PKEE",
+  ]
+  for (let i = 0; i <= 2; i++) {
+    const { err } = await guns_collection.removeAsset(rids[i])
+    console.log(err)
+  }
+}
+
+const removeAssetsDum = async () => {
+  const dums_collection = await new Collection({ pid: dum }).init(jwk)
+  const rarities = ["Legendary", "Epic", "Rare", "Common"]
+  const rids = ["kK3VwWRwjUZZoSpkliSo9kSXUgQgs4-VnhccgXGlFf8"]
+  for (let i = 0; i <= 0; i++) {
+    const { err } = await dums_collection.removeAsset(rids[i])
+    console.log(err)
+  }
+}
+
+const reloadGameScript = async () => {
+  const ao = await new AO().init(jwk)
+  const gamePath = resolve(`${import.meta.dirname}/games.lua`)
+  const lua_game = readFileSync(gamePath)
+  const { id: game_src } = await ao.ar.post({ data: lua_game })
+  const { err } = await ao.load({
+    src: game_src,
+    pid: game,
+    fills: { DUMDUM: dum, GUN: gun },
+  })
+  console.log(err)
+  console.log(`game process: ${game}`)
+
+  const { err: err2 } = await ao.msg({
+    pid: game,
+    act: "Update-Assets",
+    checkData: "assets updated!",
+  })
+  console.log(err2)
+}
+
+reloadGameScript()

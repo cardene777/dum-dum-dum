@@ -27,7 +27,10 @@ const UserCardCollection = () => {
   const [selectedArmor, setSelectedArmor] = useState(mockArmor[0]) // デフォルトでID1の防具を選択
   useEffect(() => {
     ;(async () => {
-      const dumdum = new Collection({ ...opt.collection, pid: import.meta.env.VITE_DUMDUMS })
+      const dumdum = new Collection({
+        ...opt.collection,
+        pid: import.meta.env.VITE_DUMDUMS,
+      })
       setAssets((await dumdum.info()).Assets)
     })()
   }, [])
@@ -49,7 +52,10 @@ const UserCardCollection = () => {
 
   useEffect(() => {
     ;(async () => {
-      const guns = new Collection({ ...opt.collection, pid: import.meta.env.VITE_GUNS })
+      const guns = new Collection({
+        ...opt.collection,
+        pid: import.meta.env.VITE_GUNS,
+      })
       setGunIDs((await guns.info()).Assets)
     })()
   }, [])
@@ -77,7 +83,7 @@ const UserCardCollection = () => {
         const v = gunInfo[k]
         if (v) {
           _guns.push({
-	    attack: v.Attack,
+            attack: v.Attack,
             name: v.Name,
             image: `${import.meta.env.VITE_GATEWAY}/${k}`,
             level: v.Level,
@@ -249,102 +255,111 @@ const UserCardCollection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {guns.map(card => (
-            <div
-              onClick={async () => {
-                const prof = await new Profile(opt.profile).init(api)
-                const ids = await prof.ids({ addr: address })
-                const info = await prof.info({ id: ids[0] })
-                const my_assets = pluck("Id", info?.Assets ?? [])
-                const my_dumdum = intersection(my_assets, assets)[0] ?? null
-                const guns = indexBy(prop("id"))(ranking)
-                if (guns[my_dumdum]?.guns[card.id]) {
-                  alert("already equipped")
-                } else {
-                  const { err } = await prof.ao.msg({
-                    pid: ids[0],
-                    act: "Run-Action",
-                    data: JSON.stringify({
-                      Target: import.meta.env.VITE_GAMES,
-                      Action: "Equip",
-                      Input: JSON.stringify({
-                        "Asset-ID": my_dumdum,
-                        "Gun-ID": card.id,
-                      }),
-                    }),
-                    get: "Action",
-                  })
-                  if (err) {
-                    alert("something went wrong")
-                  } else {
-                    alert("equipped!")
-                  }
-                }
-              }}
-              key={card.id}
-              className="relative bg-[#2a1b3d] border-[#b19cd9] border-2 rounded-lg shadow-lg p-4"
-              style={{ cursor: "pointer" }}
-            >
-              {/* 画像 */}
-              <img
-                src={card.image}
-                alt={card.name}
-                className="w-full object-cover rounded-md mb-4"
-              />
-              <h3 className="text-xl font-semibold mb-2 text-[#7fffd4]">
-                {card.name}
-              </h3>
+            <div className="flex flex-col">
+              <div
+                key={card.id}
+                className="relative bg-[#2a1b3d] border-[#b19cd9] border-2 rounded-lg shadow-lg p-4"
+                style={{ cursor: "pointer" }}
+              >
+                {/* 画像 */}
+                <img
+                  src={card.image}
+                  alt={card.name}
+                  className="w-full object-cover rounded-md mb-4"
+                />
+                <h3 className="text-xl font-semibold mb-2 text-[#7fffd4]">
+                  {card.name}
+                </h3>
 
-              {/* 左上のパラメーター（例：レア度を丸で囲んで表示） */}
-              <div className="absolute top-2 left-2 flex items-center justify-center w-12 h-12 bg-[#1a0b2e] border-2 border-[#b19cd9] rounded-full text-center">
-                <span className="text-sm text-white font-bold">
-                  {card.rarity}
-                </span>
-              </div>
-
-              {/* 右上のレベル表示 */}
-              <div className="absolute top-2 right-2 flex items-center justify-center w-12 h-12 bg-[#b19cd9] rounded-full text-center">
-                <span className="text-sm text-[#1a0b2e] font-bold">
-                  Lv.{card.level}
-                </span>
-              </div>
-
-              {/* 攻撃力と防御力を六芒星で囲んで表示 */}
-              <div className="absolute bottom-0 left-0 right-0 flex justify-between p-2">
-                {/* 攻撃力 */}
-                <div className="flex items-center justify-center w-16 h-16 bg-transparent border-2 border-[#b19cd9] rounded-full relative">
-                  <div className="absolute inset-0 flex justify-center items-center text-white">
-                    <span className="text-lg font-bold">{card.attack}</span>
-                </div>
-                  <svg
-                    viewBox="0 0 100 100"
-                    className="absolute inset-0 h-full w-full"
-                  >
-                    <polygon
-                      points="50,0 93,25 93,75 50,100 7,75 7,25"
-                      className="stroke-[#b19cd9] fill-none"
-                      strokeWidth="4"
-                    />
-                  </svg>
+                {/* 左上のパラメーター（例：レア度を丸で囲んで表示） */}
+                <div className="absolute top-2 left-2 flex items-center justify-center w-12 h-12 bg-[#1a0b2e] border-2 border-[#b19cd9] rounded-full text-center">
+                  <span className="text-sm text-white font-bold">
+                    {card.rarity}
+                  </span>
                 </div>
 
-                {/* 防御力 */}
-                <div className="flex items-center justify-center w-16 h-16 bg-transparent border-2 border-[#b19cd9] rounded-full relative">
-                  <div className="absolute inset-0 flex justify-center items-center text-white">
-                    <span className="text-lg font-bold">
-                      {selectedArmor.defense}
-                    </span>
+                {/* 右上のレベル表示 */}
+                <div className="absolute top-2 right-2 flex items-center justify-center w-12 h-12 bg-[#b19cd9] rounded-full text-center">
+                  <span className="text-sm text-[#1a0b2e] font-bold">
+                    Lv.{card.level}
+                  </span>
+                </div>
+
+                {/* 攻撃力と防御力を六芒星で囲んで表示 */}
+                <div className="absolute bottom-0 left-0 right-0 flex justify-between p-2">
+                  {/* 攻撃力 */}
+                  <div className="flex items-center justify-center w-16 h-16 bg-transparent border-2 border-[#b19cd9] rounded-full relative">
+                    <div className="absolute inset-0 flex justify-center items-center text-white">
+                      <span className="text-lg font-bold">{card.attack}</span>
+                    </div>
+                    <svg
+                      viewBox="0 0 100 100"
+                      className="absolute inset-0 h-full w-full"
+                    >
+                      <polygon
+                        points="50,0 93,25 93,75 50,100 7,75 7,25"
+                        className="stroke-[#b19cd9] fill-none"
+                        strokeWidth="4"
+                      />
+                    </svg>
                   </div>
-                  <svg
-                    viewBox="0 0 100 100"
-                    className="absolute inset-0 h-full w-full"
-                  >
-                    <polygon
-                      points="50,0 93,25 93,75 50,100 7,75 7,25"
-                      className="stroke-[#b19cd9] fill-none"
-                      strokeWidth="4"
-                    />
-                  </svg>
+
+                  {/* 防御力 */}
+                  <div className="flex items-center justify-center w-16 h-16 bg-transparent border-2 border-[#b19cd9] rounded-full relative">
+                    <div className="absolute inset-0 flex justify-center items-center text-white">
+                      <span className="text-lg font-bold">
+                        {selectedArmor.defense}
+                      </span>
+                    </div>
+                    <svg
+                      viewBox="0 0 100 100"
+                      className="absolute inset-0 h-full w-full"
+                    >
+                      <polygon
+                        points="50,0 93,25 93,75 50,100 7,75 7,25"
+                        className="stroke-[#b19cd9] fill-none"
+                        strokeWidth="4"
+                      />
+                    </svg>
+                  </div>
                 </div>
+              </div>
+              <div className="flex justify-center mb-8">
+                <button
+                  onClick={async () => {
+                    const prof = await new Profile(opt.profile).init(api)
+                    const ids = await prof.ids({ addr: address })
+                    const info = await prof.info({ id: ids[0] })
+                    const my_assets = pluck("Id", info?.Assets ?? [])
+                    const my_dumdum = intersection(my_assets, assets)[0] ?? null
+                    const guns = indexBy(prop("id"))(ranking)
+                    if (guns[my_dumdum]?.guns[card.id]) {
+                      alert("already equipped")
+                    } else {
+                      const { err } = await prof.ao.msg({
+                        pid: ids[0],
+                        act: "Run-Action",
+                        data: JSON.stringify({
+                          Target: import.meta.env.VITE_GAMES,
+                          Action: "Equip",
+                          Input: JSON.stringify({
+                            "Asset-ID": my_dumdum,
+                            "Gun-ID": card.id,
+                          }),
+                        }),
+                        get: "Action",
+                      })
+                      if (err) {
+                        alert("something went wrong")
+                      } else {
+                        alert("equipped!")
+                      }
+                    }
+                  }}
+                  className={`text-[#1a0b2e] w-full mt-3 p-3 rounded-md font-bold transition-colors ${"cursor-pointer	bg-[#7fffd4] hover:bg-[#5ec8b1]"}`}
+                >
+                  Equip
+                </button>
               </div>
             </div>
           ))}

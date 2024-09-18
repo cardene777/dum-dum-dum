@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { ShoppingCart, Package, Info } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import { Header } from "../components/Header";
-import { Link } from "react-router-dom";
-import { IPack } from "../types/type";
+import React, { useState } from "react"
+import { ShoppingCart, Package, Info } from "lucide-react"
+import { useNavigate } from "react-router-dom"
+import { Header } from "../components/Header"
+import { Link } from "react-router-dom"
+import { IPack } from "../types/type"
 
 interface SelectedPacks {
-  [key: number]: { quantity: number };
+  [key: number]: { quantity: number }
 }
 
 const packs: IPack[] = [
@@ -15,94 +15,94 @@ const packs: IPack[] = [
     name: "Part 1",
     price: 0.001,
     description: "Part 1",
-    image: "/img/nft/collection/pack.png",
+    image: "./img/nft/collection/pack.png",
   },
   // {
   //   id: 2,
   //   name: "Part 2",
   //   price: 100,
   //   description: "Part 2",
-  //   image: "/img/gun/M16A2.png",
+  //   image: "./img/gun/M16A2.png",
   // },
   // {
   //   id: 3,
   //   name: "Part 3",
   //   price: 100,
   //   description: "Part 3",
-  //   image: "/img/gun/desert_eagle.png",
+  //   image: "./img/gun/desert_eagle.png",
   // },
-];
+]
 
 const Shop: React.FC = () => {
   // 初期値を全パックで quantity: 0 に設定
   const [selectedPacks, setSelectedPacks] = useState<SelectedPacks>(
     packs.reduce((acc, pack) => {
-      acc[pack.id] = { quantity: 0 };
-      return acc;
-    }, {} as SelectedPacks)
-  );
+      acc[pack.id] = { quantity: 0 }
+      return acc
+    }, {} as SelectedPacks),
+  )
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleQuantityChange = (packId: number, quantity: string) => {
-    const parsedQuantity = parseInt(quantity);
+    const parsedQuantity = parseInt(quantity)
 
     // 数値が無効または0未満の場合、何もしない
     if (isNaN(parsedQuantity) || parsedQuantity < 0) {
-      return;
+      return
     }
 
-    setSelectedPacks((prev) => ({
+    setSelectedPacks(prev => ({
       ...prev,
       [packId]: {
         ...prev[packId],
         quantity: parsedQuantity,
       },
-    }));
-  };
+    }))
+  }
 
   const handlePurchase = () => {
     const purchasedPacks = Object.entries(selectedPacks)
       .filter(([, details]) => details.quantity > 0) // 購入数が0のものを除外
       .map(([packId, details]) => ({
-        pack: packs.find((p) => p.id === parseInt(packId)),
+        pack: packs.find(p => p.id === parseInt(packId)),
         quantity: details.quantity,
-      }));
+      }))
 
-    const queryParams = new URLSearchParams();
+    const queryParams = new URLSearchParams()
 
-    purchasedPacks.forEach((purchased) => {
+    purchasedPacks.forEach(purchased => {
       if (purchased.pack) {
         queryParams.append(
           `pack-${purchased.pack.id}`,
-          purchased.quantity.toString()
-        );
+          purchased.quantity.toString(),
+        )
       }
-    });
+    })
 
     // ログ出力とアラート
-    console.log("Purchased packs:", purchasedPacks);
-    alert("購入が完了しました！");
+    console.log("Purchased packs:", purchasedPacks)
+    alert("購入が完了しました！")
 
     // 選択したパックをリセット
     setSelectedPacks(
       packs.reduce((acc, pack) => {
-        acc[pack.id] = { quantity: 0 };
-        return acc;
-      }, {} as SelectedPacks)
-    );
+        acc[pack.id] = { quantity: 0 }
+        return acc
+      }, {} as SelectedPacks),
+    )
 
     // 遷移処理: クエリパラメーター付きで pack-result ページに移動
-    navigate(`/open-pack?${queryParams.toString()}`);
-  };
+    navigate(`/open-pack?${queryParams.toString()}`)
+  }
 
   const totalCost = Object.entries(selectedPacks).reduce(
     (total, [packId, details]) => {
-      const pack = packs.find((p) => p.id === parseInt(packId));
-      return total + (pack ? pack.price * details.quantity : 0);
+      const pack = packs.find(p => p.id === parseInt(packId))
+      return total + (pack ? pack.price * details.quantity : 0)
     },
-    0
-  );
+    0,
+  )
 
   return (
     <>
@@ -112,7 +112,7 @@ const Shop: React.FC = () => {
           Card Pack Shop
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {packs.map((pack) => (
+          {packs.map(pack => (
             <div
               key={pack.id}
               className={`p-4 rounded-lg bg-[#2a1b3d] transition-colors border-2 ${
@@ -139,9 +139,7 @@ const Shop: React.FC = () => {
                   type="number"
                   min="0"
                   value={selectedPacks[pack.id].quantity}
-                  onChange={(e) =>
-                    handleQuantityChange(pack.id, e.target.value)
-                  }
+                  onChange={e => handleQuantityChange(pack.id, e.target.value)}
                   className="w-20 bg-[#1a0b2e] border border-[#b19cd9] text-white rounded-md p-2"
                 />
                 <Link
@@ -171,7 +169,7 @@ const Shop: React.FC = () => {
         )}
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Shop;
+export default Shop

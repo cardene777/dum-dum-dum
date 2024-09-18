@@ -142,7 +142,7 @@ const BattleRegistrationList: React.FC = () => {
 
   const getGameID = async () => {
     const ao = new AO(opt.ao)
-    let { out } = await ao.dry({
+    let { res, out } = await ao.dry({
       pid: import.meta.env.VITE_GAMES,
       act: "GameID",
       get: {
@@ -305,7 +305,7 @@ const BattleRegistrationList: React.FC = () => {
     rarity: "Common",
     level: 1,
     attack: 10,
-    image: "/img/gun/default-handgun.png",
+    image: "./img/gun/default-handgun.png",
     }
 
     // 保有している武器が3枚未満の場合はデフォルト武器を追加

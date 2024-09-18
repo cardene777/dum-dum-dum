@@ -25,7 +25,7 @@ export const Header = () => {
     <header className="bg-[#0f0518] p-4 shadow-lg">
       <div className="px-10 flex justify-between items-center text-white">
         <div className="flex items-center justify-center space-x-2">
-          <img src="/img/icon.png" alt="Dum Dum Dum" className="w-12" />
+          <img src="./img/icon.png" alt="Dum Dum Dum" className="w-12" />
           <Link to="/" className="text-3xl font-bold text-[#b19cd9]">
             Dum Dum Dum
           </Link>

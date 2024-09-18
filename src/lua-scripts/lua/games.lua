@@ -6,7 +6,7 @@ games = games or {}
 origin = orign or nil
 span = span or 1000 * 60 * 60 * 24
 dumdum = dumdum or '<DUMDUM>'
-gun = guns or '<GUN>'
+gun = gun or '<GUN>'
 dumdums = dumdums or {}
 guns = guns or {}
 init = init or false
@@ -35,7 +35,7 @@ Handlers.add(
     return msg.From == dumdum
   end,
   function(msg)
-    assert(init == false, "already initialized")
+    --assert(init == false, "already initialized")
     local assets = json.decode(msg.Data).Assets
     for i, val in ipairs(assets) do
       dumdums[val] = dumdums[val] or { score = 0, guns = {} }
@@ -50,7 +50,7 @@ Handlers.add(
     return msg.From == gun
   end,
   function(msg)
-    assert(init_guns == false, "already initialized")
+    --assert(init_guns == false, "already initialized")
     local assets = json.decode(msg.Data).Assets
     for i, val in ipairs(assets) do
       guns[val] = guns[val] or { active = true }
@@ -78,6 +78,23 @@ Handlers.add(
 	Action = 'Info',
     })
     Handlers.utils.reply('origin set!')(msg) 
+  end
+)
+
+Handlers.add(
+  'Update-Assets',
+  Handlers.utils.hasMatchingTag('Action', 'Update-Assets'),
+  function(msg)
+    assert(msg.From == ao.env.Process.Owner, 'only process owner can execute!')
+    ao.send({
+	Target = dumdum,
+	Action = 'Info',
+    })
+    ao.send({
+	Target = gun,
+	Action = 'Info',
+    })
+    Handlers.utils.reply('assets updated!')(msg) 
   end
 )
 
