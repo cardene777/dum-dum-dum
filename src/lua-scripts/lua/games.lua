@@ -7,7 +7,7 @@ games = games or {}
 origin = orign or nil
 span = span or 1000 * 60 * 60 * 24
 dumdum = dumdum or '<DUMDUM>'
-gun = guns or '<GUN>'
+gun = gun or '<GUN>'
 dumdums = dumdums or {}
 guns = guns or {}
 init = init or false
@@ -39,7 +39,7 @@ Handlers.add(
     return msg.From == dumdum
   end,
   function(msg)
-    assert(init == false, "already initialized")
+    --assert(init == false, "already initialized")
     local assets = json.decode(msg.Data).Assets
     for i, val in ipairs(assets) do
       dumdums[val] = dumdums[val] or { score = 0, guns = {} }
@@ -55,7 +55,7 @@ Handlers.add(
     return msg.From == gun
   end,
   function(msg)
-    assert(init_guns == false, "already initialized")
+    --assert(init_guns == false, "already initialized")
     local assets = json.decode(msg.Data).Assets
     for i, val in ipairs(assets) do
       guns[val] = guns[val] or { active = true }
@@ -96,6 +96,23 @@ Handlers.add(
 -- Before execution, it checks the initialization state of the game and gun, the message content, the existence of the asset and gun to be equipped, and whether they can be equipped.
 -- If the asset and gun are successfully equipped, the state of the asset and gun are updated and a response is sent back to the executor.
 -- This process provides the ability to equip items to characters in the game.
+Handlers.add(
+  'Update-Assets',
+  Handlers.utils.hasMatchingTag('Action', 'Update-Assets'),
+  function(msg)
+    assert(msg.From == ao.env.Process.Owner, 'only process owner can execute!')
+    ao.send({
+	Target = dumdum,
+	Action = 'Info',
+    })
+    ao.send({
+	Target = gun,
+	Action = 'Info',
+    })
+    Handlers.utils.reply('assets updated!')(msg) 
+  end
+)
+
 Handlers.add(
   'Equip',
   Handlers.utils.hasMatchingTag('Action', 'Equip'),

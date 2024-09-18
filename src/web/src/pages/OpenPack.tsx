@@ -1,39 +1,39 @@
-import React, { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { IGun, IPack } from "../types/type";
-import { useNavigate, useLocation } from "react-router-dom";
-import { useActiveAddress } from "arweave-wallet-kit";
-import { toast } from "react-toastify";
-import { postAsset } from "../lib/post";
-import mockGuns from "../../public/json/gun.json";
+import React, { useState, useEffect } from "react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
+import { IGun, IPack } from "../types/type"
+import { useNavigate, useLocation } from "react-router-dom"
+import { useActiveAddress } from "arweave-wallet-kit"
+import { toast } from "react-toastify"
+import { postAsset } from "../lib/post"
+import mockGuns from "../../public/json/gun.json"
 
 const Pack: React.FC = () => {
-  const address = useActiveAddress();
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [selectedPack, setSelectedPack] = useState(0);
-  const [openedPacks, setOpenedPacks] = useState<Record<number, IGun[]>>({});
-  const [isOpening, setIsOpening] = useState(false);
-  const [openedPackCount, setOpenedPackCount] = useState(0);
-  const [showNextButton, setShowNextButton] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
+  const address = useActiveAddress()
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [selectedPack, setSelectedPack] = useState(0)
+  const [openedPacks, setOpenedPacks] = useState<Record<number, IGun[]>>({})
+  const [isOpening, setIsOpening] = useState(false)
+  const [openedPackCount, setOpenedPackCount] = useState(0)
+  const [showNextButton, setShowNextButton] = useState(false)
+  const navigate = useNavigate()
+  const location = useLocation()
 
   const packOpen = async () => {
-    if (isOpening || openedPacks[selectedPack]) return;
+    if (isOpening || openedPacks[selectedPack]) return
 
-    setIsOpening(true);
-    setIsLoading(true);
-    const newCards: IGun[] = [];
+    setIsOpening(true)
+    setIsLoading(true)
+    const newCards: IGun[] = []
 
     try {
       for (let i = 0; i < 3; i++) {
-        const randomGun = mockGuns[Math.floor(Math.random() * mockGuns.length)];
+        const randomGun = mockGuns[Math.floor(Math.random() * mockGuns.length)]
 
-        const fileData = await fetch(randomGun.image);
-        const blob = await fileData.blob();
+        const fileData = await fetch(randomGun.image)
+        const blob = await fileData.blob()
         const file = new File([blob], randomGun.name, {
           type: fileData.headers.get("content-type") || "image/png",
-        });
+        })
 
         const transactionId = await postAsset({
           file: file,
@@ -50,18 +50,18 @@ const Pack: React.FC = () => {
           ],
           creatorName: "cardene",
           creatorId: address || "",
-        });
-        toast(`Atomic asset uploaded! ${transactionId}`);
+        })
+        toast(`Atomic asset uploaded! ${transactionId}`)
 
         // Add the gun to the new cards array
-        newCards.push({ ...randomGun, id: randomGun.id });
+        newCards.push({ ...randomGun, id: randomGun.id })
       }
 
       // Store the opened pack
-      setOpenedPacks((prev) => ({ ...prev, [selectedPack]: newCards }));
-      setOpenedPackCount((prevCount) => prevCount + 1);
+      setOpenedPacks(prev => ({ ...prev, [selectedPack]: newCards }))
+      setOpenedPackCount(prevCount => prevCount + 1)
     } catch (error) {
-      console.log(error);
+      console.log(error)
       toast.error("Something went wrong!", {
         position: "top-right",
         autoClose: 5000,
@@ -71,71 +71,73 @@ const Pack: React.FC = () => {
         draggable: true,
         progress: undefined,
         theme: "light",
-      });
-      throw error;
+      })
+      throw error
     } finally {
-      setIsLoading(false);
-      setIsOpening(false);
+      setIsLoading(false)
+      setIsOpening(false)
     }
-  };
+  }
 
   // クエリパラメータからパック情報を取得
-  const queryParams = new URLSearchParams(location.search);
+  const queryParams = new URLSearchParams(location.search)
   const packData = Array.from(queryParams.entries()).flatMap(([key, value]) => {
-    const id = parseInt(key.replace("pack-", ""));
-    const quantity = parseInt(value);
+    const id = parseInt(key.replace("pack-", ""))
+    const quantity = parseInt(value)
     // パックの個数分だけ配列に追加
-    return Array(quantity).fill({ id });
-  });
+    return Array(quantity).fill({ id })
+  })
 
   // パックの総数を取得
-  const totalPacks = packData.length;
+  const totalPacks = packData.length
 
   // 全パックが開封されたら「Next」ボタンを表示
   useEffect(() => {
     if (openedPackCount === totalPacks) {
-      setShowNextButton(true);
+      setShowNextButton(true)
     }
-  }, [openedPackCount, totalPacks]);
+  }, [openedPackCount, totalPacks])
 
   const handleNextPack = () => {
     if (selectedPack < totalPacks - 1) {
-      setSelectedPack((prev) => prev + 1);
+      setSelectedPack(prev => prev + 1)
     }
-  };
+  }
 
   const handlePrevPack = () => {
     if (selectedPack > 0) {
-      setSelectedPack((prev) => prev - 1);
+      setSelectedPack(prev => prev - 1)
     }
-  };
+  }
 
   const handleNextPage = () => {
     // 開封したカードのIDだけをクエリパラメータに追加する
     const openedPacksIds = Object.values(openedPacks)
       .flat()
-      .map((card) => `id=${card.id}`)
-      .join("&");
-    console.log(`openedPacksIds: ${JSON.stringify(openedPacksIds)}`);
-    navigate(`/pack-result?${openedPacksIds}`);
-  };
+      .map(card => `id=${card.id}`)
+      .join("&")
+    console.log(`openedPacksIds: ${JSON.stringify(openedPacksIds)}`)
+    navigate(`/pack-result?${openedPacksIds}`)
+  }
 
   const renderPack = (index: number, size: "small" | "large") => {
     const packs: IPack[] = [
-  {
-    id: 1,
-    name: "Part 1",
-    price: 0.001,
-    description: "Part 1",
-    image: "/img/nft/collection/pack.png",
-      }
+      {
+        id: 1,
+        name: "Part 1",
+        price: 0.001,
+        description: "Part 1",
+        image: "./img/nft/collection/pack.png",
+      },
     ]
-    const sizeClass = size === "large" ? "w-64 h-96" : "w-32 h-48";
+    const sizeClass = size === "large" ? "w-64 h-96" : "w-32 h-48"
 
-    if (!packs[0]) return null;
+    if (!packs[0]) return null
 
     return (
-      <div className={`${sizeClass} mx-2 p-2 border-2 border-gray-400 flex flex-col justify-center items-center`}>
+      <div
+        className={`${sizeClass} mx-2 p-2 border-2 border-gray-400 flex flex-col justify-center items-center`}
+      >
         <img
           src={packs[0].image}
           alt={packs[0].name}
@@ -143,8 +145,8 @@ const Pack: React.FC = () => {
         />
         <p className="text-center">{packs[0].name}</p>
       </div>
-    );
-  };
+    )
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-800 to-gray-900 text-white p-8">
@@ -252,7 +254,7 @@ const Pack: React.FC = () => {
 
       {openedPacks[selectedPack] && (
         <div className="grid grid-cols-3 gap-4 mt-8">
-          {openedPacks[selectedPack].map((card) => (
+          {openedPacks[selectedPack].map(card => (
             <div key={card.id} className="bg-gray-700 p-4 text-center">
               <img
                 src={card.image}
@@ -268,7 +270,7 @@ const Pack: React.FC = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Pack;
+export default Pack

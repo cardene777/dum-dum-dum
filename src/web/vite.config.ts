@@ -4,6 +4,8 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import { nodePolyfills } from "vite-plugin-node-polyfills";
 
 export default defineConfig({
+  base:"./",
+  root:"./",
   plugins: [
     nodePolyfills({
       include: ["buffer", "crypto", "stream", "util", "http", "path"],
@@ -11,5 +13,4 @@ export default defineConfig({
     react(),
     tsconfigPaths(),
   ],
-  base: "./",
 });

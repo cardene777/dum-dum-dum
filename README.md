@@ -1,13 +1,31 @@
 # Dum Dum Dum
+DumDumDum is the first reference implementation built by TCG protocol. It's an onchain trading card game using the popular DumDum atomic asset collection.
 
-## 🖼️ Site
+TCG stands for Trading Card Game, and it's a 20 billion dollar RWA market. TCG protocol aims to bring such a huge industry by inventing a decentralized protocol whereby anyone can build their own trading card games using atomic assets and universal data licenses on AO.
+
+- [Read why AO is perfect for trading card games](/docs)
+## 🖼️ Game App
 
 - https://arweave.net/hOpmIgM8GJy8gEyfl1TueDviGsjRPNSoaoi5x-HOhCk
 
+## How to Play
+
+We are currently using a test DumDumDum collection, but will be using the real DumDum collection for the production release.
+
+1. Obtain an available [DumDumDum](https://bazar.arweave.dev/#/collection/CoqeBSfYjsYPrVDZUxlpS5n39UAlkrz6jRCNJWpiINA/assets/) and some [Guns](https://bazar.arweave.dev/#/collection/XrxQde5ccu_X7dxP9NwmhI8PQkSQs8EWpltkOcPhWQE) from BazAR.  
+(They are sold for the minimum possible prices for test purposes).
+2. Go to [My Cards](https://arweave.net/hOpmIgM8GJy8gEyfl1TueDviGsjRPNSoaoi5x-HOhCk/#/my-card) page and equip the Guns to your DumDumDum.
+3. Got to [Battle Registration](https://arweave.net/hOpmIgM8GJy8gEyfl1TueDviGsjRPNSoaoi5x-HOhCk/#/battle-user) page and register for the next game session.
+4. Wait for the game to be executed. The winenrs will be determined by some battle logic based on the parameters of your deck and you will be rewarded with the pooled tokens (just some points for the test). You can see the latest scores on [Ranking](https://arweave.net/hOpmIgM8GJy8gEyfl1TueDviGsjRPNSoaoi5x-HOhCk/#/ranking) page.
+
+This might seem to be too simple for now, but trading card games are a global phenomenon when built on well-designed game logic.
+
+[The TCG protocol on AO](./docs/doc.md) will serve as a framework to tap into with the multi-billion dollar market.
+
 ## 📜 Docs
 
-- [slide](https://github.com/cardene777/dum-dum-dum/blob/main/docs/slide.pdf)
-- [doc](https://github.com/cardene777/dum-dum-dum/blob/main/docs/doc.md)
+- [slide](./docs/slide.pdf)
+- [doc](./docs/doc.md)
 
 ## 📄 Page
 
@@ -40,10 +58,10 @@
 - [ao scripts](src/lua-scripts)
 - [web](src/web)
 
-## 🔗 Link
+## 🔗 Links
 
-- [Test Dum Dum Dum](https://bazar.arweave.dev/#/collection/CoqeBSfYjsYPrVDZUxlpS5n39UAlkrz6jRCNJWpiINA/assets/)
-- [Test Gun](https://bazar.arweave.dev/#/collection/XrxQde5ccu_X7dxP9NwmhI8PQkSQs8EWpltkOcPhWQE)
+- [Test DumDumDums](https://bazar.arweave.dev/#/collection/CoqeBSfYjsYPrVDZUxlpS5n39UAlkrz6jRCNJWpiINA/assets/)
+- [Test Guns](https://bazar.arweave.dev/#/collection/XrxQde5ccu_X7dxP9NwmhI8PQkSQs8EWpltkOcPhWQE)
 - [Game AO Process](https://www.ao.link/#/entity/89HBqWgMIm0lj8z9-i5BX9g4K4cYo2VvkVFkf-oLIbs)
 
 ## 🛠️ Tech
@@ -56,9 +74,3 @@
 - aonote
 - Tailwindcss
 - Arkb
-
-## Contract
-
-| Contract ID | Explorer |
-| ----------- | -------- |
-| `g8hu9OLW0KLpCS1G17XOIC9ty7zyc3oA-RNTewXfiTM` | [https://viewblock.io/arweave/tx/g8hu9OLW0KLpCS1G17XOIC9ty7zyc3oA-RNTewXfiTM](https://viewblock.io/arweave/tx/g8hu9OLW0KLpCS1G17XOIC9ty7zyc3oA-RNTewXfiTM) |
