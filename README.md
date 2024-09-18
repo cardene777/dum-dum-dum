@@ -17,7 +17,7 @@ We are currently using a test DumDumDum collection, but will be using the real D
 1. Obtain an available [DumDumDum](https://bazar.arweave.dev/#/collection/CoqeBSfYjsYPrVDZUxlpS5n39UAlkrz6jRCNJWpiINA/assets/) and some [Guns](https://bazar.arweave.dev/#/collection/XrxQde5ccu_X7dxP9NwmhI8PQkSQs8EWpltkOcPhWQE) from BazAR.  
 (They are sold for the minimum possible prices for test purposes).
 2. Go to [My Cards](https://arweave.net/hOpmIgM8GJy8gEyfl1TueDviGsjRPNSoaoi5x-HOhCk/#/my-card) page and equip your DumDumDum with the Guns you own.
-3. Got to [Battle Registration](https://arweave.net/hOpmIgM8GJy8gEyfl1TueDviGsjRPNSoaoi5x-HOhCk/#/battle-user) page and register for the next game session.
+3. Go to [Battle Registration](https://arweave.net/hOpmIgM8GJy8gEyfl1TueDviGsjRPNSoaoi5x-HOhCk/#/battle-user) page and register for the next game session.
 4. Wait for the game to be executed. The winenrs will be determined by some battle logic based on the parameters of your deck and you will be rewarded with the pooled tokens (just some points for the test). You can see the latest scores on [Ranking](https://arweave.net/hOpmIgM8GJy8gEyfl1TueDviGsjRPNSoaoi5x-HOhCk/#/ranking) page.
 
 This might seem to be too simple for now, but trading card games are a global phenomenon when built on well-designed game logic.
