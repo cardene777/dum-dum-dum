@@ -2,7 +2,7 @@
 
 ## 🖼️ Site
 
-- [https://arweave.net/7tBTjaEVzqjlgje6DGigVPaF404LD1TXz64K0giESlo](https://arweave.net/7tBTjaEVzqjlgje6DGigVPaF404LD1TXz64K0giESlo)
+- https://arweave.net/hOpmIgM8GJy8gEyfl1TueDviGsjRPNSoaoi5x-HOhCk
 
 ## 📜 Docs
 
