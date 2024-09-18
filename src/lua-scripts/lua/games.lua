@@ -2,6 +2,7 @@ local json = require('json')
 local ao = require("ao")
 local crypto = require(".crypto");
 
+-- Initialize
 games = games or {}
 origin = orign or nil
 span = span or 1000 * 60 * 60 * 24
@@ -12,10 +13,12 @@ guns = guns or {}
 init = init or false
 init_guns = int_guns or false
 
+-- Generate Game ID
 local function getGameID(timestamp)
   return tostring(math.ceil((timestamp - tonumber(origin)) / span))
 end
 
+-- Generate Game ID Handler
 Handlers.add(
   'GameID',
   Handlers.utils.hasMatchingTag('Action', 'GameID'),
@@ -29,6 +32,7 @@ Handlers.add(
   end
 )
 
+-- Initialize Game
 Handlers.add(
   'Init',
   function(msg)
@@ -44,6 +48,7 @@ Handlers.add(
   end
 )
 
+-- Initialize Guns
 Handlers.add(
   'Init-Guns',
   function(msg)
@@ -59,6 +64,11 @@ Handlers.add(
   end
 )
 
+-- Set Origin
+-- This handler sets the starting criteria (origin) and duration (span) of the game.
+-- It can only be executed by the process owner.
+-- It checks that the origin and span data are in the correct format and sets them only if they are not already set.
+-- When the configuration is complete, it sends an Info action to the relevant component, which replies with a message that the configuration is complete.
 Handlers.add(
   'Set-Origin',
   Handlers.utils.hasMatchingTag('Action', 'Set-Origin'),
@@ -77,10 +87,15 @@ Handlers.add(
 	Target = gun,
 	Action = 'Info',
     })
-    Handlers.utils.reply('origin set!')(msg) 
+    Handlers.utils.reply('origin set!')(msg)
   end
 )
 
+-- Equip Gun for Dumdum
+-- Equips the specified asset (dumdum) with a gun (gun).
+-- Before execution, it checks the initialization state of the game and gun, the message content, the existence of the asset and gun to be equipped, and whether they can be equipped.
+-- If the asset and gun are successfully equipped, the state of the asset and gun are updated and a response is sent back to the executor.
+-- This process provides the ability to equip items to characters in the game.
 Handlers.add(
   'Update-Assets',
   Handlers.utils.hasMatchingTag('Action', 'Update-Assets'),
@@ -126,6 +141,11 @@ Handlers.add(
   end
 )
 
+-- Register Dumdum
+-- To register a player (dumdum asset) in the game.
+-- Various conditions are checked, such as whether the game and gun are initialized, whether the asset ID is correct, and whether the player has already been registered.
+-- If the registration is successful, the player's information is stored in the games table and a success response is returned to the requestor.
+-- It also sends a balances action to check the status of the asset.
 Handlers.add(
   'Register',
   Handlers.utils.hasMatchingTag('Action', 'Register'),
@@ -216,7 +236,7 @@ Handlers.add(
 	Tags = tags,
 	Data = json.encode(numbers)
     })
-    Handlers.utils.reply('executed!')(msg) 
+    Handlers.utils.reply('executed!')(msg)
   end
 )
 
@@ -259,7 +279,7 @@ Handlers.add(
 	  end
 	  i = i + 1
 	end
-	
+
       end
     end
 
@@ -279,7 +299,7 @@ Handlers.add(
       end
     end
     games[msg.Tags.ID].result = attacks
-    Handlers.utils.reply('executed!')(msg) 
+    Handlers.utils.reply('executed!')(msg)
   end
 )
 

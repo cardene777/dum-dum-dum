@@ -4,7 +4,7 @@
     "name": "Alice",
     "rank": 1,
     "score": 1500,
-    "avatar": "/img/dumdum.png",
+    "avatar": "./img/dumdum.png",
     "deck": []
   },
   {
@@ -12,7 +12,7 @@
     "name": "Bob",
     "rank": 2,
     "score": 1450,
-    "avatar": "/img/1087.png",
+    "avatar": "./img/1087.png",
     "deck": []
   },
   {
@@ -20,7 +20,7 @@
     "name": "Charlie",
     "rank": 3,
     "score": 1400,
-    "avatar": "/img/1230.png",
+    "avatar": "./img/1230.png",
     "deck": []
   },
   {
@@ -28,7 +28,7 @@
     "name": "Diana",
     "rank": 4,
     "score": 1350,
-    "avatar": "/img/1728.png",
+    "avatar": "./img/1728.png",
     "deck": []
   },
   {
@@ -36,7 +36,7 @@
     "name": "Ethan",
     "rank": 5,
     "score": 1300,
-    "avatar": "/img/1857.png",
+    "avatar": "./img/1857.png",
     "deck": []
   }
 ]

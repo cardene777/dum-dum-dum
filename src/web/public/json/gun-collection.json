@@ -6,7 +6,7 @@
     "rarity": "Common",
     "level": 1,
     "attack": 54,
-    "image": "/img/gun/ak-47.png"
+    "image": "./img/gun/ak-47.png"
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "rarity": "Common",
     "level": 2,
     "attack": 62,
-    "image": "/img/gun/ak-47.png"
+    "image": "./img/gun/ak-47.png"
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "rarity": "Rare",
     "level": 3,
     "attack": 72,
-    "image": "/img/gun/ak-47.png"
+    "image": "./img/gun/ak-47.png"
   },
   {
     "id": 4,
@@ -33,7 +33,7 @@
     "rarity": "Epic",
     "level": 4,
     "attack": 81,
-    "image": "/img/gun/ak-47.png"
+    "image": "./img/gun/ak-47.png"
   },
   {
     "id": 5,
@@ -42,7 +42,7 @@
     "rarity": "Legendary",
     "level": 5,
     "attack": 90,
-    "image": "/img/gun/ak-47.png"
+    "image": "./img/gun/ak-47.png"
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "rarity": "Common",
     "level": 1,
     "attack": 48,
-    "image": "/img/gun/m4a1.png"
+    "image": "./img/gun/m4a1.png"
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "rarity": "Common",
     "level": 2,
     "attack": 56,
-    "image": "/img/gun/m4a1.png"
+    "image": "./img/gun/m4a1.png"
   },
   {
     "id": 8,
@@ -69,7 +69,7 @@
     "rarity": "Rare",
     "level": 3,
     "attack": 64,
-    "image": "/img/gun/m4a1.png"
+    "image": "./img/gun/m4a1.png"
   },
   {
     "id": 9,
@@ -78,7 +78,7 @@
     "rarity": "Epic",
     "level": 4,
     "attack": 72,
-    "image": "/img/gun/m4a1.png"
+    "image": "./img/gun/m4a1.png"
   },
   {
     "id": 10,
@@ -87,7 +87,7 @@
     "rarity": "Legendary",
     "level": 5,
     "attack": 80,
-    "image": "/img/gun/m4a1.png"
+    "image": "./img/gun/m4a1.png"
   },
   {
     "id": 11,
@@ -96,7 +96,7 @@
     "rarity": "Common",
     "level": 1,
     "attack": 36,
-    "image": "/img/gun/M16A2.png"
+    "image": "./img/gun/M16A2.png"
   },
   {
     "id": 12,
@@ -105,7 +105,7 @@
     "rarity": "Common",
     "level": 2,
     "attack": 42,
-    "image": "/img/gun/M16A2.png"
+    "image": "./img/gun/M16A2.png"
   },
   {
     "id": 13,
@@ -114,7 +114,7 @@
     "rarity": "Rare",
     "level": 3,
     "attack": 48,
-    "image": "/img/gun/M16A2.png"
+    "image": "./img/gun/M16A2.png"
   },
   {
     "id": 14,
@@ -123,7 +123,7 @@
     "rarity": "Epic",
     "level": 4,
     "attack": 54,
-    "image": "/img/gun/M16A2.png"
+    "image": "./img/gun/M16A2.png"
   },
   {
     "id": 15,
@@ -132,7 +132,7 @@
     "rarity": "Legendary",
     "level": 5,
     "attack": 60,
-    "image": "/img/gun/M16A2.png"
+    "image": "./img/gun/M16A2.png"
   },
   {
     "id": 16,
@@ -141,7 +141,7 @@
     "rarity": "Common",
     "level": 1,
     "attack": 57,
-    "image": "/img/gun/desert_eagle.png"
+    "image": "./img/gun/desert_eagle.png"
   },
   {
     "id": 17,
@@ -150,7 +150,7 @@
     "rarity": "Common",
     "level": 2,
     "attack": 66,
-    "image": "/img/gun/desert_eagle.png"
+    "image": "./img/gun/desert_eagle.png"
   },
   {
     "id": 18,
@@ -159,7 +159,7 @@
     "rarity": "Rare",
     "level": 3,
     "attack": 76,
-    "image": "/img/gun/desert_eagle.png"
+    "image": "./img/gun/desert_eagle.png"
   },
   {
     "id": 19,
@@ -168,7 +168,7 @@
     "rarity": "Epic",
     "level": 4,
     "attack": 85,
-    "image": "/img/gun/desert_eagle.png"
+    "image": "./img/gun/desert_eagle.png"
   },
   {
     "id": 20,
@@ -177,7 +177,7 @@
     "rarity": "Legendary",
     "level": 5,
     "attack": 95,
-    "image": "/img/gun/desert_eagle.png"
+    "image": "./img/gun/desert_eagle.png"
   },
   {
     "id": 21,
@@ -186,7 +186,7 @@
     "rarity": "Common",
     "level": 1,
     "attack": 33,
-    "image": "/img/gun/ump-45.png"
+    "image": "./img/gun/ump-45.png"
   },
   {
     "id": 22,
@@ -195,7 +195,7 @@
     "rarity": "Common",
     "level": 2,
     "attack": 38,
-    "image": "/img/gun/ump-45.png"
+    "image": "./img/gun/ump-45.png"
   },
   {
     "id": 23,
@@ -204,7 +204,7 @@
     "rarity": "Rare",
     "level": 3,
     "attack": 44,
-    "image": "/img/gun/ump-45.png"
+    "image": "./img/gun/ump-45.png"
   },
   {
     "id": 24,
@@ -213,7 +213,7 @@
     "rarity": "Epic",
     "level": 4,
     "attack": 49,
-    "image": "/img/gun/ump-45.png"
+    "image": "./img/gun/ump-45.png"
   },
   {
     "id": 25,
@@ -222,7 +222,7 @@
     "rarity": "Legendary",
     "level": 5,
     "attack": 55,
-    "image": "/img/gun/ump-45.png"
+    "image": "./img/gun/ump-45.png"
   },
   {
     "id": 26,
@@ -231,7 +231,7 @@
     "rarity": "Common",
     "level": 1,
     "attack": 60,
-    "image": "/img/gun/awp.png"
+    "image": "./img/gun/awp.png"
   },
   {
     "id": 27,
@@ -240,7 +240,7 @@
     "rarity": "Common",
     "level": 2,
     "attack": 70,
-    "image": "/img/gun/awp.png"
+    "image": "./img/gun/awp.png"
   },
   {
     "id": 28,
@@ -249,7 +249,7 @@
     "rarity": "Rare",
     "level": 3,
     "attack": 80,
-    "image": "/img/gun/awp.png"
+    "image": "./img/gun/awp.png"
   },
   {
     "id": 29,
@@ -258,7 +258,7 @@
     "rarity": "Epic",
     "level": 4,
     "attack": 90,
-    "image": "/img/gun/awp.png"
+    "image": "./img/gun/awp.png"
   },
   {
     "id": 30,
@@ -267,7 +267,7 @@
     "rarity": "Legendary",
     "level": 5,
     "attack": 100,
-    "image": "/img/gun/awp.png"
+    "image": "./img/gun/awp.png"
   },
   {
     "id": 31,
@@ -276,7 +276,7 @@
     "rarity": "Common",
     "level": 1,
     "attack": 42,
-    "image": "/img/gun/mp5.png"
+    "image": "./img/gun/mp5.png"
   },
   {
     "id": 32,
@@ -285,7 +285,7 @@
     "rarity": "Common",
     "level": 2,
     "attack": 49,
-    "image": "/img/gun/mp5.png"
+    "image": "./img/gun/mp5.png"
   },
   {
     "id": 33,
@@ -294,7 +294,7 @@
     "rarity": "Rare",
     "level": 3,
     "attack": 56,
-    "image": "/img/gun/mp5.png"
+    "image": "./img/gun/mp5.png"
   },
   {
     "id": 34,
@@ -303,7 +303,7 @@
     "rarity": "Epic",
     "level": 4,
     "attack": 63,
-    "image": "/img/gun/mp5.png"
+    "image": "./img/gun/mp5.png"
   },
   {
     "id": 35,
@@ -312,7 +312,7 @@
     "rarity": "Legendary",
     "level": 5,
     "attack": 70,
-    "image": "/img/gun/mp5.png"
+    "image": "./img/gun/mp5.png"
   },
   {
     "id": 36,
@@ -321,7 +321,7 @@
     "rarity": "Common",
     "level": 1,
     "attack": 24,
-    "image": "/img/gun/glock-18.png"
+    "image": "./img/gun/glock-18.png"
   },
   {
     "id": 37,
@@ -330,7 +330,7 @@
     "rarity": "Common",
     "level": 2,
     "attack": 28,
-    "image": "/img/gun/glock-18.png"
+    "image": "./img/gun/glock-18.png"
   },
   {
     "id": 38,
@@ -339,7 +339,7 @@
     "rarity": "Rare",
     "level": 3,
     "attack": 32,
-    "image": "/img/gun/glock-18.png"
+    "image": "./img/gun/glock-18.png"
   },
   {
     "id": 39,
@@ -348,7 +348,7 @@
     "rarity": "Epic",
     "level": 4,
     "attack": 36,
-    "image": "/img/gun/glock-18.png"
+    "image": "./img/gun/glock-18.png"
   },
   {
     "id": 40,
@@ -357,7 +357,7 @@
     "rarity": "Legendary",
     "level": 5,
     "attack": 40,
-    "image": "/img/gun/glock-18.png"
+    "image": "./img/gun/glock-18.png"
   },
   {
     "id": 41,
@@ -366,7 +366,7 @@
     "rarity": "Common",
     "level": 1,
     "attack": 39,
-    "image": "/img/gun/famas.png"
+    "image": "./img/gun/famas.png"
   },
   {
     "id": 42,
@@ -375,7 +375,7 @@
     "rarity": "Common",
     "level": 2,
     "attack": 45,
-    "image": "/img/gun/famas.png"
+    "image": "./img/gun/famas.png"
   },
   {
     "id": 43,
@@ -384,7 +384,7 @@
     "rarity": "Rare",
     "level": 3,
     "attack": 52,
-    "image": "/img/gun/famas.png"
+    "image": "./img/gun/famas.png"
   },
   {
     "id": 44,
@@ -393,7 +393,7 @@
     "rarity": "Epic",
     "level": 4,
     "attack": 58,
-    "image": "/img/gun/famas.png"
+    "image": "./img/gun/famas.png"
   },
   {
     "id": 45,
@@ -402,7 +402,7 @@
     "rarity": "Legendary",
     "level": 5,
     "attack": 65,
-    "image": "/img/gun/famas.png"
+    "image": "./img/gun/famas.png"
   },
   {
     "id": 46,
@@ -411,7 +411,7 @@
     "rarity": "Common",
     "level": 1,
     "attack": 51,
-    "image": "/img/gun/scar-h.png"
+    "image": "./img/gun/scar-h.png"
   },
   {
     "id": 47,
@@ -420,7 +420,7 @@
     "rarity": "Common",
     "level": 2,
     "attack": 59,
-    "image": "/img/gun/scar-h.png"
+    "image": "./img/gun/scar-h.png"
   },
   {
     "id": 48,
@@ -429,7 +429,7 @@
     "rarity": "Rare",
     "level": 3,
     "attack": 68,
-    "image": "/img/gun/scar-h.png"
+    "image": "./img/gun/scar-h.png"
   },
   {
     "id": 49,
@@ -438,7 +438,7 @@
     "rarity": "Epic",
     "level": 4,
     "attack": 76,
-    "image": "/img/gun/scar-h.png"
+    "image": "./img/gun/scar-h.png"
   },
   {
     "id": 50,
@@ -447,7 +447,7 @@
     "rarity": "Legendary",
     "level": 5,
     "attack": 85,
-    "image": "/img/gun/scar-h.png"
+    "image": "./img/gun/scar-h.png"
   },
   {
     "id": 51,
@@ -456,7 +456,7 @@
     "rarity": "Common",
     "level": 1,
     "attack": 45,
-    "image": "/img/gun/p90.png"
+    "image": "./img/gun/p90.png"
   },
   {
     "id": 52,
@@ -465,7 +465,7 @@
     "rarity": "Common",
     "level": 2,
     "attack": 52,
-    "image": "/img/gun/p90.png"
+    "image": "./img/gun/p90.png"
   },
   {
     "id": 53,
@@ -474,7 +474,7 @@
     "rarity": "Rare",
     "level": 3,
     "attack": 60,
-    "image": "/img/gun/p90.png"
+    "image": "./img/gun/p90.png"
   },
   {
     "id": 54,
@@ -483,7 +483,7 @@
     "rarity": "Epic",
     "level": 4,
     "attack": 67,
-    "image": "/img/gun/p90.png"
+    "image": "./img/gun/p90.png"
   },
   {
     "id": 55,
@@ -492,7 +492,7 @@
     "rarity": "Legendary",
     "level": 5,
     "attack": 75,
-    "image": "/img/gun/p90.png"
+    "image": "./img/gun/p90.png"
   },
   {
     "id": 56,
@@ -501,7 +501,7 @@
     "rarity": "Common",
     "level": 1,
     "attack": 27,
-    "image": "/img/gun/mac-10.png"
+    "image": "./img/gun/mac-10.png"
   },
   {
     "id": 57,
@@ -510,7 +510,7 @@
     "rarity": "Common",
     "level": 2,
     "attack": 31,
-    "image": "/img/gun/mac-10.png"
+    "image": "./img/gun/mac-10.png"
   },
   {
     "id": 58,
@@ -519,7 +519,7 @@
     "rarity": "Rare",
     "level": 3,
     "attack": 36,
-    "image": "/img/gun/mac-10.png"
+    "image": "./img/gun/mac-10.png"
   },
   {
     "id": 59,
@@ -528,7 +528,7 @@
     "rarity": "Epic",
     "level": 4,
     "attack": 40,
-    "image": "/img/gun/mac-10.png"
+    "image": "./img/gun/mac-10.png"
   },
   {
     "id": 60,
@@ -537,7 +537,7 @@
     "rarity": "Legendary",
     "level": 5,
     "attack": 45,
-    "image": "/img/gun/mac-10.png"
+    "image": "./img/gun/mac-10.png"
   },
   {
     "id": 61,
@@ -546,7 +546,7 @@
     "rarity": "Common",
     "level": 1,
     "attack": 52,
-    "image": "/img/gun/m249.png"
+    "image": "./img/gun/m249.png"
   },
   {
     "id": 62,
@@ -555,7 +555,7 @@
     "rarity": "Common",
     "level": 2,
     "attack": 61,
-    "image": "/img/gun/m249.png"
+    "image": "./img/gun/m249.png"
   },
   {
     "id": 63,
@@ -564,7 +564,7 @@
     "rarity": "Rare",
     "level": 3,
     "attack": 70,
-    "image": "/img/gun/m249.png"
+    "image": "./img/gun/m249.png"
   },
   {
     "id": 64,
@@ -573,7 +573,7 @@
     "rarity": "Epic",
     "level": 4,
     "attack": 79,
-    "image": "/img/gun/m249.png"
+    "image": "./img/gun/m249.png"
   },
   {
     "id": 65,
@@ -582,7 +582,7 @@
     "rarity": "Legendary",
     "level": 5,
     "attack": 88,
-    "image": "/img/gun/m249.png"
+    "image": "./img/gun/m249.png"
   },
   {
     "id": 66,
@@ -591,7 +591,7 @@
     "rarity": "Common",
     "level": 1,
     "attack": 60,
-    "image": "/img/gun/rpg-7.png"
+    "image": "./img/gun/rpg-7.png"
   },
   {
     "id": 67,
@@ -600,7 +600,7 @@
     "rarity": "Common",
     "level": 2,
     "attack": 70,
-    "image": "/img/gun/rpg-7.png"
+    "image": "./img/gun/rpg-7.png"
   },
   {
     "id": 68,
@@ -609,7 +609,7 @@
     "rarity": "Rare",
     "level": 3,
     "attack": 80,
-    "image": "/img/gun/rpg-7.png"
+    "image": "./img/gun/rpg-7.png"
   },
   {
     "id": 69,
@@ -618,7 +618,7 @@
     "rarity": "Epic",
     "level": 4,
     "attack": 90,
-    "image": "/img/gun/rpg-7.png"
+    "image": "./img/gun/rpg-7.png"
   },
   {
     "id": 70,
@@ -627,7 +627,7 @@
     "rarity": "Legendary",
     "level": 5,
     "attack": 100,
-    "image": "/img/gun/rpg-7.png"
+    "image": "./img/gun/rpg-7.png"
   },
   {
     "id": 71,
@@ -636,7 +636,7 @@
     "rarity": "Common",
     "level": 1,
     "attack": 40,
-    "image": "/img/gun/m14.png"
+    "image": "./img/gun/m14.png"
   },
   {
     "id": 72,
@@ -645,7 +645,7 @@
     "rarity": "Common",
     "level": 2,
     "attack": 47,
-    "image": "/img/gun/m14.png"
+    "image": "./img/gun/m14.png"
   },
   {
     "id": 73,
@@ -654,7 +654,7 @@
     "rarity": "Rare",
     "level": 3,
     "attack": 54,
-    "image": "/img/gun/m14.png"
+    "image": "./img/gun/m14.png"
   },
   {
     "id": 74,
@@ -663,7 +663,7 @@
     "rarity": "Epic",
     "level": 4,
     "attack": 61,
-    "image": "/img/gun/m14.png"
+    "image": "./img/gun/m14.png"
   },
   {
     "id": 75,
@@ -672,7 +672,7 @@
     "rarity": "Legendary",
     "level": 5,
     "attack": 68,
-    "image": "/img/gun/m14.png"
+    "image": "./img/gun/m14.png"
   },
   {
     "id": 76,
@@ -681,7 +681,7 @@
     "rarity": "Common",
     "level": 1,
     "attack": 30,
-    "image": "/img/gun/uzi.png"
+    "image": "./img/gun/uzi.png"
   },
   {
     "id": 77,
@@ -690,7 +690,7 @@
     "rarity": "Common",
     "level": 2,
     "attack": 35,
-    "image": "/img/gun/uzi.png"
+    "image": "./img/gun/uzi.png"
   },
   {
     "id": 78,
@@ -699,7 +699,7 @@
     "rarity": "Rare",
     "level": 3,
     "attack": 40,
-    "image": "/img/gun/uzi.png"
+    "image": "./img/gun/uzi.png"
   },
   {
     "id": 79,
@@ -708,7 +708,7 @@
     "rarity": "Epic",
     "level": 4,
     "attack": 45,
-    "image": "/img/gun/uzi.png"
+    "image": "./img/gun/uzi.png"
   },
   {
     "id": 80,
@@ -717,7 +717,7 @@
     "rarity": "Legendary",
     "level": 5,
     "attack": 50,
-    "image": "/img/gun/uzi.png"
+    "image": "./img/gun/uzi.png"
   },
   {
     "id": 81,
@@ -726,7 +726,7 @@
     "rarity": "Common",
     "level": 1,
     "attack": 43,
-    "image": "/img/gun/fn-p90.png"
+    "image": "./img/gun/fn-p90.png"
   },
   {
     "id": 82,
@@ -735,7 +735,7 @@
     "rarity": "Common",
     "level": 2,
     "attack": 50,
-    "image": "/img/gun/fn-p90.png"
+    "image": "./img/gun/fn-p90.png"
   },
   {
     "id": 83,
@@ -744,7 +744,7 @@
     "rarity": "Rare",
     "level": 3,
     "attack": 57,
-    "image": "/img/gun/fn-p90.png"
+    "image": "./img/gun/fn-p90.png"
   },
   {
     "id": 84,
@@ -753,7 +753,7 @@
     "rarity": "Epic",
     "level": 4,
     "attack": 64,
-    "image": "/img/gun/fn-p90.png"
+    "image": "./img/gun/fn-p90.png"
   },
   {
     "id": 85,
@@ -762,7 +762,7 @@
     "rarity": "Legendary",
     "level": 5,
     "attack": 72,
-    "image": "/img/gun/fn-p90.png"
+    "image": "./img/gun/fn-p90.png"
   },
   {
     "id": 86,
@@ -771,7 +771,7 @@
     "rarity": "Common",
     "level": 1,
     "attack": 10,
-    "image": "/img/gun/default-handgun.png"
+    "image": "./img/gun/default-handgun.png"
   },
   {
     "id": 87,
@@ -780,7 +780,7 @@
     "rarity": "Common",
     "level": 2,
     "attack": 15,
-    "image": "/img/gun/default-handgun.png"
+    "image": "./img/gun/default-handgun.png"
   },
   {
     "id": 88,
@@ -789,7 +789,7 @@
     "rarity": "Rare",
     "level": 3,
     "attack": 20,
-    "image": "/img/gun/default-handgun.png"
+    "image": "./img/gun/default-handgun.png"
   },
   {
     "id": 89,
@@ -798,7 +798,7 @@
     "rarity": "Epic",
     "level": 4,
     "attack": 25,
-    "image": "/img/gun/default-handgun.png"
+    "image": "./img/gun/default-handgun.png"
   },
   {
     "id": 90,
@@ -807,6 +807,6 @@
     "rarity": "Legendary",
     "level": 5,
     "attack": 30,
-    "image": "/img/gun/default-handgun.png"
+    "image": "./img/gun/default-handgun.png"
   }
 ]
