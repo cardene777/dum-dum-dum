@@ -1,9 +1,11 @@
 # Dum Dum Dum
+
 DumDumDum is the first reference implementation built by TCG protocol. It's an onchain trading card game using the popular DumDum atomic asset collection.
 
 TCG stands for Trading Card Game, and it's a 20 billion dollar RWA market. TCG protocol aims to bring such a huge industry by inventing a decentralized protocol whereby anyone can build their own trading card games using atomic assets and universal data licenses on AO.
 
 - [Read why AO is perfect for trading card games](/docs)
+
 ## 🖼️ Game App
 
 - https://arweave.net/hOpmIgM8GJy8gEyfl1TueDviGsjRPNSoaoi5x-HOhCk
@@ -20,7 +22,7 @@ We are currently using a test DumDumDum collection, but will be using the real D
 
 This might seem to be too simple for now, but trading card games are a global phenomenon when built on well-designed game logic.
 
-[The TCG protocol on AO](./docs/doc.md) will serve as a framework to tap into with the multi-billion dollar market.
+[The TCG protocol on AO](./docs/doc.md) will serve as a framework to tap into the multi-billion dollar market.
 
 ## 📜 Docs
 
